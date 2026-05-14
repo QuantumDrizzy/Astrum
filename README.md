@@ -1,49 +1,24 @@
-# ASTRUM — Observatorio Personal 🔭
+# ASTRUM — Personal Observatory 🔭
 
-App Android nativa en Kotlin. GPS real, canvas animado, mecánica orbital, catálogo Messier completo.
+A native Android application built with Kotlin. Features real-time GPS tracking, animated canvas rendering, orbital mechanics, and a complete Messier catalog.
 
-## Abrir en Android Studio
+## Features
+* **AstroEngine**: Sidereal time, altitude/azimuth, rise/set calculations.
+* **Solar/Lunar Dynamics**: Real-time position, phase, and twilight calculations.
+* **PlanetCalc**: High-precision orbital mechanics for the 7 major planets.
+* **Catalog**: 110 Messier objects + 35 brightest stars with search and filtering.
+* **UI/UX**: Custom StarFieldView with twinkling stars and MoonView with phase rendering.
 
-1. Extrae el ZIP
-2. Android Studio → **File → Open** → selecciona la carpeta `astrum-native`
-3. Espera a que Gradle sincronice (~2 min primera vez)
-4. Si pide descargar el SDK: acepta
-5. **Build → Make Project** para verificar que compila
-6. **Run** en tu Pixel o **Build → Generate Signed APK**
+## Requirements
+* Android 8.0+ (API 26)
+* Android Studio Hedgehog or superior
+* Kotlin 1.9+
 
-> ⚠️ Si Android Studio dice "Gradle wrapper not found": ve a  
-> **File → Project Structure → Project → Gradle Version** → escribe `8.4` → OK
+## Tech Stack
+* **Language**: Kotlin
+* **Location**: FusedLocationProviderClient with Kotlin Flow
+* **UI**: Android Canvas API & Fragments
+* **Architecture**: Clean architecture with dedicated calculation modules.
 
-## Estructura
-
-```
-astro/
-  AstroEngine.kt    — Tiempo sidéreo, altitud/azimut, rise/set
-  SolarCalc.kt      — Sol: posición, amanecer/ocaso, crepúsculos, hora dorada
-  LunarCalc.kt      — Luna: fase, iluminación, posición, rise/set
-  PlanetCalc.kt     — Mecánica orbital real para los 7 planetas
-  Catalog.kt        — 110 objetos Messier + 35 estrellas brillantes
-
-ui/
-  NowFragment       — Qué hay visible ahora, con brújula y filtros
-  PlanetsFragment   — Planetas en tiempo real
-  CatalogFragment   — Messier completo con búsqueda y filtros
-  SolarFragment     — Sol y luna con todos los datos
-
-views/
-  StarFieldView     — Fondo animado: estrellas parpadeantes + meteoros
-  MoonView          — Fase lunar dibujada en Canvas
-
-location/
-  LocationHelper    — FusedLocationProviderClient con Kotlin Flow
-```
-
-## Permisos
-
-- `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` — GPS en tiempo real
-
-## Requisitos
-
-- Android 8.0+ (API 26)
-- Android Studio Hedgehog o superior
-- Kotlin 1.9+
+---
+*Built for stargazers and systems engineers.*

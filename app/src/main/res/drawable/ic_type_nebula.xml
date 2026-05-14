@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emission nebula: irregular glowing cloud -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp" android:height="20dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+
+    <!-- Outer wispy cloud (faint) -->
+    <path
+        android:fillColor="#334FC3F7"
+        android:pathData="M12,4 C15.5,4 19,6.5 19,10 C19,13 17,15.5 15,17 C13,18.5 10,18.5 8,17 C6,15.5 4.5,13 4.5,10 C4.5,6.5 8,4 12,4 Z"/>
+
+    <!-- Mid cloud -->
+    <path
+        android:fillColor="#664FC3F7"
+        android:pathData="M12,6 C14.5,6 17,8 17,11 C17,13.5 15.5,15 13.5,16 C11.5,17 9,16.5 7.5,15 C6,13.5 6,11 7,9 C8,7 10,6 12,6 Z"/>
+
+    <!-- Bright core / HII region -->
+    <path
+        android:fillColor="#CC4FC3F7"
+        android:pathData="M12,8.5 C13.5,8.5 15,9.5 15,11.5 C15,13 13.5,14 12,14 C10.5,14 9,13 9,11.5 C9,9.5 10.5,8.5 12,8.5 Z"/>
+</vector>

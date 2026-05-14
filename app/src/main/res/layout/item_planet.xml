@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_bg"
+    android:padding="13dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Header row: name + visibility badge -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvPlanetName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:text="Júpiter"/>
+
+        <TextView
+            android:id="@+id/tvPlanetVis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/badge_vis_yes"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            android:textColor="@color/green_vis"
+            android:text="VISIBLE"/>
+    </LinearLayout>
+
+    <!-- Alt / Az / Dist / Mag grid + Azimuth radar (side by side) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- Data columns -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Alt / Az / Dist / Mag grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tvPlanetAlt"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="18sp"
+                        android:textColor="@color/amber" android:text="--°"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="9sp"
+                        android:textColor="@color/text_dim" android:textAllCaps="true" android:text="ALT"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tvPlanetAz"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="18sp"
+                        android:textColor="@color/text_primary" android:text="--°"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="9sp"
+                        android:textColor="@color/text_dim" android:textAllCaps="true" android:text="AZ"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tvPlanetDist"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="13sp"
+                        android:textColor="@color/text_primary" android:text="-- UA"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="9sp"
+                        android:textColor="@color/text_dim" android:textAllCaps="true" android:text="DIST"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tvPlanetMag"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="13sp"
+                        android:textColor="@color/teal_accent" android:text="--"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textSize="9sp"
+                        android:textColor="@color/text_dim" android:textAllCaps="true" android:text="MAG"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Elongation -->
+            <TextView
+                android:id="@+id/tvPlanetElong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                android:textColor="@color/blue_accent"
+                android:layout_marginBottom="5dp"
+                android:text="Elongación --°"/>
+
+            <!-- RA / Dec -->
+            <TextView
+                android:id="@+id/tvPlanetCoords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textSize="10sp"
+                android:textColor="@color/text_dim"
+                android:layout_marginBottom="6dp"
+                android:text="AR --h --m --s  Dec ±--° --'"/>
+
+            <!-- Rise / Transit / Set -->
+            <TextView
+                android:id="@+id/tvPlanetTimes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textSize="11sp"
+                android:textColor="@color/text_dim"
+                android:text="↑ --:--  ⊙ --:--  ↓ --:--"/>
+        </LinearLayout>
+
+        <!-- Azimuth radar -->
+        <com.astrum.app.views.AzimuthView
+            android:id="@+id/azimuthView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

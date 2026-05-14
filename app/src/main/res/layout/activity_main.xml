@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_deep">
+
+    <!-- ══ HEADER ══ -->
+    <LinearLayout
+        android:id="@+id/appHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="36dp"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp"
+        android:background="@color/bg_deep">
+
+        <!-- Logo + Clock + Night Mode toggle row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <!-- App title block -->
+            <LinearLayout
+                android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvAppTitle"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="ASTRUM" android:fontFamily="monospace"
+                    android:textSize="20sp" android:textColor="@color/text_primary"
+                    android:letterSpacing="0.25" android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvAppSubtitle"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="OBSERVATORIO PERSONAL" android:fontFamily="monospace"
+                    android:textSize="9sp" android:textColor="@color/text_dim" android:letterSpacing="0.15"/>
+            </LinearLayout>
+
+            <!-- Clock -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="end">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:id="@+id/clH" android:layout_width="32dp"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:fontFamily="monospace" android:textSize="26sp"
+                        android:textColor="@color/text_primary" android:gravity="end"/>
+                    <TextView android:id="@+id/clSep1"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text=":" android:fontFamily="monospace" android:textSize="22sp"
+                        android:textColor="@color/text_dim" android:paddingHorizontal="1dp"/>
+                    <TextView android:id="@+id/clM" android:layout_width="32dp"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:fontFamily="monospace" android:textSize="26sp"
+                        android:textColor="@color/text_primary"/>
+                    <TextView android:id="@+id/clSep2"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text=":" android:fontFamily="monospace" android:textSize="18sp"
+                        android:textColor="@color/amber" android:paddingHorizontal="1dp"/>
+                    <TextView android:id="@+id/clS" android:layout_width="28dp"
+                        android:layout_height="wrap_content" android:text="--"
+                        android:fontFamily="monospace" android:textSize="18sp" android:textColor="@color/amber"/>
+                </LinearLayout>
+                <TextView android:id="@+id/clDate" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="---"
+                    android:fontFamily="monospace" android:textSize="10sp"
+                    android:textColor="@color/text_dim" android:gravity="end"/>
+            </LinearLayout>
+
+            <!-- Night mode toggle button -->
+            <TextView
+                android:id="@+id/btnNightMode"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="10dp"
+                android:text="🌙"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/chip_bg_default"
+                android:contentDescription="@string/night_mode_on"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+        <!-- GPS pill + KPIs row -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="32dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <LinearLayout android:id="@+id/gpsPill"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingHorizontal="10dp" android:background="@drawable/chip_bg_default">
+                <View android:id="@+id/gpsLed"
+                    android:layout_width="7dp" android:layout_height="7dp"
+                    android:background="@drawable/led_searching" android:layout_marginEnd="7dp"/>
+                <TextView android:id="@+id/gpsText"
+                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                    android:text="esperando GPS..." android:fontFamily="monospace"
+                    android:textSize="10sp" android:textColor="@color/text_dim"
+                    android:singleLine="true" android:ellipsize="end"/>
+            </LinearLayout>
+
+            <!-- KPIs -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginStart="10dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="end" android:layout_marginEnd="10dp">
+                    <TextView android:id="@+id/kpiSol" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--°"
+                        android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
+                    <TextView android:id="@+id/tvKpiLabelSol"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SOL" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="end" android:layout_marginEnd="10dp">
+                    <TextView android:id="@+id/kpiLuna" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--%"
+                        android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
+                    <TextView android:id="@+id/tvKpiLabelLuna"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="LUNA" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="end">
+                    <TextView android:id="@+id/kpiLst" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="--:--"
+                        android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
+                    <TextView android:id="@+id/tvKpiLabelLst"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="T.S.L." android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ══ FRAGMENT CONTAINER (fills remaining space) ══ -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"/>
+
+    <!-- ══ BOTTOM NAV ══ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_deep"
+        app:itemIconTint="@color/text_dim"
+        app:itemTextColor="@color/text_dim"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</LinearLayout>

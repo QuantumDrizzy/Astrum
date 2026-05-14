@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/card_bg"
+    android:layout_marginBottom="5dp"
+    android:padding="0dp">
+
+    <!-- Visibility bar -->
+    <View
+        android:id="@+id/catVisBar"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@color/green_vis"/>
+
+    <!-- Main content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="11dp">
+
+        <!-- Row 1: type icon + name + type badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="3dp">
+
+            <!-- Type icon vector drawable -->
+            <ImageView
+                android:id="@+id/ivCatTypeIcon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_type_galaxy"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tvCatName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvCatType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/badge_galaxy"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:fontFamily="monospace"
+                android:textSize="9sp"
+                android:textColor="@color/blue_accent"/>
+        </LinearLayout>
+
+        <!-- Row 2: subtitle -->
+        <TextView
+            android:id="@+id/tvCatSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            android:textColor="@color/text_dim"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Row 3: coords -->
+        <TextView
+            android:id="@+id/tvCatCoords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            android:textColor="@color/amber"
+            android:alpha="0.7"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Row 4: altitude -->
+        <TextView
+            android:id="@+id/tvCatAlt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textSize="11sp"
+            android:textColor="@color/green_vis"
+            android:layout_marginBottom="3dp"/>
+
+        <!-- Row 5: rise · transit · set -->
+        <TextView
+            android:id="@+id/tvCatTimes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textSize="10sp"
+            android:textColor="@color/text_dim"/>
+
+    </LinearLayout>
+
+    <!-- Azimuth radar view -->
+    <com.astrum.app.views.AzimuthView
+        android:id="@+id/azimuthView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

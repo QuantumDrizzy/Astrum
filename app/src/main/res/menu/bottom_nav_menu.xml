@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nowFragment"     android:icon="@drawable/ic_now"     android:title="AHORA"/>
+    <item android:id="@+id/planetsFragment" android:icon="@drawable/ic_planets" android:title="PLANETAS"/>
+    <item android:id="@+id/catalogFragment" android:icon="@drawable/ic_catalog" android:title="MESSIER"/>
+    <item android:id="@+id/starsFragment"   android:icon="@drawable/ic_now"     android:title="ESTRELLAS"/>
+    <item android:id="@+id/solarFragment"   android:icon="@drawable/ic_solar"   android:title="SOL"/>
+</menu>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ASTRUM</string>
+    <string name="app_subtitle">Observatorio Personal</string>
+    <string name="nav_now">AHORA</string>
+    <string name="nav_planets">PLANETAS</string>
+    <string name="nav_catalog">CATÁLOGO</string>
+    <string name="nav_solar">SOL · LUNA</string>
+    <string name="no_location">Esperando GPS…\nAbre la app al aire libre</string>
+    <string name="day_warning">Sol sobre el horizonte — vista orientativa</string>
+    <string name="all">Todo</string>
+    <string name="galaxies">Galaxias</string>
+    <string name="nebulae">Nebulosas</string>
+    <string name="globular">Glob.</string>
+    <string name="open">Abierto</string>
+    <string name="visible">Visibles</string>
+    <string name="planets">Planetas</string>
+    <string name="clusters">Cúmulos</string>
+    <!-- Night mode -->
+    <string name="night_mode_on">Modo Nocturno</string>
+    <string name="night_mode_off">Modo Normal</string>
+    <!-- Sort -->
+    <string name="sort_title">Ordenar por</string>
+    <string name="sort_altitude">Altitud ↓  (mejor posición)</string>
+    <string name="sort_magnitude">Magnitud ↑  (más brillante)</string>
+    <string name="sort_set_time">Hora de puesta ↑</string>
+    <!-- Privacy -->
+    <string name="privacy_policy_url">https://astrum.app/privacy</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="privacy_body">ASTRUM usa tu ubicación GPS únicamente para calcular posiciones astronómicas en tiempo real. Los datos de ubicación nunca se almacenan en servidores ni se comparten con terceros.</string>
+</resources>

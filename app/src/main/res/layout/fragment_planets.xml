@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep">
+
+    <com.astrum.app.views.StarFieldView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPlanets"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="60dp"
+        android:paddingHorizontal="14dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"/>
+
+    <!-- Sort button overlay (top-right) -->
+    <ImageButton
+        android:id="@+id/btnSort"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_sort"
+        android:background="@drawable/chip_bg_default"
+        android:tint="@color/text_secondary"
+        android:padding="10dp"
+        android:contentDescription="@string/sort_title"/>
+
+</FrameLayout>

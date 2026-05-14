@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Globular cluster: dense sphere with graduated brightness -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp" android:height="20dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+
+    <!-- Outer faint halo -->
+    <path
+        android:fillColor="#2200E676"
+        android:pathData="M5,12 a7,7 0,1,0 14,0 a7,7 0,1,0 -14,0"/>
+
+    <!-- Mid layer -->
+    <path
+        android:fillColor="#5500E676"
+        android:pathData="M7.5,12 a4.5,4.5 0,1,0 9,0 a4.5,4.5 0,1,0 -9,0"/>
+
+    <!-- Dense core -->
+    <path
+        android:fillColor="#CC00E676"
+        android:pathData="M9.5,12 a2.5,2.5 0,1,0 5,0 a2.5,2.5 0,1,0 -5,0"/>
+
+    <!-- Bright nucleus -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M11,12 a1,1 0,1,0 2,0 a1,1 0,1,0 -2,0"/>
+</vector>

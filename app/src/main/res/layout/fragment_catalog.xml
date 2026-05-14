@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep">
+
+    <com.astrum.app.views.StarFieldView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <!-- Search + filters + sort header -->
+        <LinearLayout
+            android:id="@+id/catalogHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingBottom="8dp"
+            android:background="@color/bg_deep">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/card_bg"
+                android:paddingHorizontal="14dp"
+                android:fontFamily="monospace"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_dim"
+                android:hint="Buscar M42, Orión, nebulosa..."
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Chips row + sort button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:id="@+id/chipAll"
+                            android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/all"/>
+                        <TextView android:id="@+id/chipGalaxy"
+                            android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/galaxies"/>
+                        <TextView android:id="@+id/chipNebula"
+                            android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/nebulae"/>
+                        <TextView android:id="@+id/chipGlobular"
+                            android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/globular"/>
+                        <TextView android:id="@+id/chipOpen"
+                            android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/open"/>
+                        <TextView android:id="@+id/chipVisible"
+                            style="@style/Astrum.Chip" android:text="@string/visible"/>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <ImageButton
+                    android:id="@+id/btnSort"
+                    android:layout_width="36dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:src="@drawable/ic_sort"
+                    android:background="@drawable/chip_bg_default"
+                    android:tint="@color/text_secondary"
+                    android:padding="7dp"
+                    android:contentDescription="@string/sort_title"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCatalog"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="14dp"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false"/>
+
+    </LinearLayout>
+</FrameLayout>

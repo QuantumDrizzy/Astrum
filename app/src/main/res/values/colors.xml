@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_deep">#060a12</color>
+    <color name="bg_card">#0c1220</color>
+    <color name="bg_surface">#121a2e</color>
+    <color name="amber">#c8924a</color>
+    <color name="amber_dim">#8a5f28</color>
+    <color name="green_vis">#3db87a</color>
+    <color name="red_dim">#d05050</color>
+    <color name="blue_accent">#4a88d8</color>
+    <color name="teal_accent">#2ec4b6</color>
+    <color name="purple_accent">#9b72cf</color>
+    <color name="text_primary">#ede5d0</color>
+    <color name="text_secondary">#ccc4b4</color>
+    <color name="text_dim">#5a5448</color>
+    <color name="border">#1a1612</color>
+    <color name="transparent">#00000000</color>
+    <color name="nav_bg">#0a0e18</color>
+    <!-- Night vision mode -->
+    <color name="night_red">#CC0000</color>
+    <color name="night_red_dim">#660000</color>
+    <color name="night_red_faint">#1A0000</color>
+    <color name="night_bg">#000000</color>
+</resources>

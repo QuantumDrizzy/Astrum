@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_deep">
+
+    <com.astrum.app.views.StarFieldView
+        android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/starsHeader"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingHorizontal="14dp"
+            android:paddingBottom="8dp" android:paddingTop="8dp"
+            android:background="@color/bg_deep">
+
+            <EditText android:id="@+id/etSearch"
+                android:layout_width="match_parent" android:layout_height="44dp"
+                android:background="@drawable/card_bg" android:paddingHorizontal="14dp"
+                android:fontFamily="monospace" android:textSize="12sp"
+                android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
+                android:hint="Buscar estrella, constelación..." android:singleLine="true"
+                android:inputType="text" android:layout_marginBottom="8dp"/>
+
+            <!-- Chips + sort button -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <HorizontalScrollView android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:scrollbars="none">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:id="@+id/chipAllStars" style="@style/Astrum.Chip"
+                            android:layout_marginEnd="6dp" android:text="Todas"/>
+                        <TextView android:id="@+id/chipVisibleStars" style="@style/Astrum.Chip"
+                            android:layout_marginEnd="6dp" android:text="Visibles"/>
+                        <TextView android:id="@+id/chipBright" style="@style/Astrum.Chip"
+                            android:text="mag &lt; 1.5"/>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <ImageButton android:id="@+id/btnSort"
+                    android:layout_width="36dp" android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:src="@drawable/ic_sort"
+                    android:background="@drawable/chip_bg_default"
+                    android:tint="@color/text_secondary"
+                    android:padding="7dp"
+                    android:contentDescription="@string/sort_title"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerStars"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:paddingHorizontal="14dp"
+            android:paddingBottom="16dp" android:clipToPadding="false"/>
+    </LinearLayout>
+</FrameLayout>

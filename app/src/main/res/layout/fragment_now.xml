@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep">
+
+    <!-- Animated starfield background -->
+    <com.astrum.app.views.StarFieldView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp"
+            android:paddingHorizontal="14dp">
+
+            <!-- Header compass card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="10dp">
+
+                <!-- Compass SVG via XML vector -->
+                <FrameLayout
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginEnd="14dp">
+                    <ImageView
+                        android:id="@+id/compassRing"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/ic_compass_ring"/>
+                    <ImageView
+                        android:id="@+id/compassNeedle"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/ic_compass_needle"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvCoords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_primary"
+                        android:text="--°N --°W"/>
+
+                    <TextView
+                        android:id="@+id/tvLst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textSize="11sp"
+                        android:textColor="@color/amber"
+                        android:layout_marginTop="4dp"
+                        android:text="T.S.L. --:--:--"/>
+
+                    <TextView
+                        android:id="@+id/tvSkyInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textSize="10sp"
+                        android:textColor="@color/text_dim"
+                        android:layout_marginTop="3dp"
+                        android:text="---"/>
+
+                    <!-- Sky quality -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="monospace"
+                            android:textSize="9sp"
+                            android:textColor="@color/text_dim"
+                            android:text="CALIDAD"
+                            android:layout_marginEnd="8dp"/>
+                        <ProgressBar
+                            android:id="@+id/skyQualityBar"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="4dp"
+                            android:layout_weight="1"
+                            android:progressTint="@color/green_vis"
+                            android:progressBackgroundTint="@color/bg_surface"
+                            android:max="100"
+                            android:progress="60"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Day warning -->
+            <TextView
+                android:id="@+id/tvDayWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/badge_cluster"
+                android:padding="10dp"
+                android:fontFamily="monospace"
+                android:textSize="11sp"
+                android:textColor="@color/amber"
+                android:text="@string/day_warning"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"/>
+
+            <!-- No location -->
+            <TextView
+                android:id="@+id/tvNoLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:gravity="center"
+                android:fontFamily="monospace"
+                android:textSize="13sp"
+                android:textColor="@color/text_dim"
+                android:text="@string/no_location"
+                android:visibility="gone"/>
+
+            <!-- Section header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MEJOR AHORA — ORDENADO POR ALTURA"
+                style="@style/Astrum.SectionHeader"/>
+
+            <!-- Filter chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView android:id="@+id/chipAll"
+                    android:layout_marginEnd="6dp"    style="@style/Astrum.Chip" android:text="@string/all"/>
+                    <TextView android:id="@+id/chipGalaxy"
+                    android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/galaxies"/>
+                    <TextView android:id="@+id/chipNebula"
+                    android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/nebulae"/>
+                    <TextView android:id="@+id/chipCluster"
+                    android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/clusters"/>
+                    <TextView android:id="@+id/chipPlanet"
+                    android:layout_marginEnd="6dp" style="@style/Astrum.Chip" android:text="@string/planets"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:background="@drawable/card_bg"
+    android:layout_marginBottom="5dp">
+
+    <View android:id="@+id/starVisBar" android:layout_width="3dp"
+        android:layout_height="match_parent" android:background="@color/green_vis"/>
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="vertical" android:padding="11dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:id="@+id/tvStarName" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:textSize="14sp"
+                android:textColor="@color/text_primary" android:textStyle="bold"/>
+            <TextView android:id="@+id/tvStarAlt" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:fontFamily="monospace" android:textSize="12sp"
+                android:textColor="@color/green_vis" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="3dp">
+            <TextView android:id="@+id/tvStarSub" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:fontFamily="monospace" android:textSize="10sp"
+                android:textColor="@color/text_dim"/>
+            <TextView android:id="@+id/tvStarAz" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:fontFamily="monospace" android:textSize="10sp"
+                android:textColor="@color/amber" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.astrum.app.views.AzimuthView
+        android:id="@+id/azimuthView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

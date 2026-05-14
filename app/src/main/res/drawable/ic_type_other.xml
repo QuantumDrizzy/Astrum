@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Other / Supernova remnant: 8-pointed starburst ring -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp" android:height="20dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+
+    <!-- Outer remnant ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#c8924a"
+        android:strokeWidth="1.5"
+        android:pathData="M12,5 a7,7 0,1,0 0.001,0 Z"/>
+
+    <!-- 8-pointed inner starburst -->
+    <path
+        android:fillColor="#c8924a"
+        android:pathData="M12,7.5 L12.9,10.8 L16,9.5 L13.8,12 L16,14.5 L12.9,13.2 L12,16.5 L11.1,13.2 L8,14.5 L10.2,12 L8,9.5 L11.1,10.8 Z"/>
+</vector>

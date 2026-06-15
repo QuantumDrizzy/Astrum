@@ -32,10 +32,17 @@ ever needs it: apply **precession-to-date** to the catalog coordinates before th
 alt-az transform. (Refraction near the horizon is the next term.) Not needed for
 the current Celestron 114EQ / phone-assist use.
 
-## Next: the push-to UX (device-side)
+## Push-to: math core built + validated; UX is device-side
 
-The engine already knows *where* every object is (validated above). The remaining
-"Stellarium-killer" is the **point-and-find UX**: fuse the phone's rotation-vector
-sensor → current (alt, az) it's pointing at, then guide the user ("turn right N°,
-tilt up M°") to the target's (alt, az), with an optional AR overlay. That code is
-device-dependent (compass/gyro/camera) and must be validated on a phone, not in CI.
+The engine knows *where* every object is (validated above). The push-to **guidance
+math** — given the phone's current pointing (alt, az) and a target (alt, az),
+compute the signed turn (left/right, with azimuth wraparound), the tilt (up/down),
+the true great-circle separation, and an on-target test — now lives in
+`astro/PushTo.kt` (pure `kotlin.math`, no Android deps) and is cross-validated by
+`validation/validate_pushto.py` (10/10: wraparound 350°→10°=+20°, great-circle
+separation, tilt sign, FOV threshold). PASS.
+
+What remains is **device-only** and cannot be built or validated in CI: fusing the
+phone's **rotation-vector sensor** into the live (alt, az) it's aimed at (feeds
+`PushTo.guide`), and the **AR overlay**. That needs the phone (compass/gyro/camera)
+and Android Studio — it must be done interactively, not in the autonomous loop.

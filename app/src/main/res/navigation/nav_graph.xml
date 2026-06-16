@@ -5,6 +5,7 @@
     app:startDestination="@id/nowFragment">
 
     <fragment android:id="@+id/nowFragment"     android:name="com.astrum.app.ui.NowFragment"     android:label="AHORA"/>
+    <fragment android:id="@+id/pushToFragment"  android:name="com.astrum.app.ui.PushToFragment"  android:label="LOCALIZAR"/>
     <fragment android:id="@+id/planetsFragment" android:name="com.astrum.app.ui.PlanetsFragment" android:label="PLANETAS"/>
     <fragment android:id="@+id/catalogFragment" android:name="com.astrum.app.ui.CatalogFragment" android:label="MESSIER"/>
     <fragment android:id="@+id/starsFragment"   android:name="com.astrum.app.ui.StarsFragment"   android:label="ESTRELLAS"/>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep">
+
+    <!-- Animated starfield background (same as other screens) -->
+    <com.astrum.app.views.StarFieldView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/pushtoRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOCALIZAR"
+            android:letterSpacing="0.25"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_dim"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="apunta el móvil al cielo"
+            android:textSize="11sp"
+            android:textColor="@color/text_dim"/>
+
+        <!-- Target picker -->
+        <Spinner
+            android:id="@+id/spinnerTarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@color/bg_card"
+            android:popupBackground="@color/bg_surface"
+            android:minHeight="48dp"/>
+
+        <!-- Radar showing where the TARGET is in the sky (absolute alt/az) -->
+        <com.astrum.app.views.AzimuthView
+            android:id="@+id/azimuthView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tvTargetInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="monospace"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:text="objetivo —"/>
+
+        <!-- Live guidance cue -->
+        <TextView
+            android:id="@+id/tvCue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/amber"
+            android:text="—"/>
+
+        <TextView
+            android:id="@+id/tvSeparation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="monospace"
+            android:textSize="12sp"
+            android:textColor="@color/text_dim"
+            android:text=""/>
+
+        <!-- On-target banner (hidden until within FOV) -->
+        <TextView
+            android:id="@+id/tvOnTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="8dp"
+            android:text="● EN OBJETIVO"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/green_vis"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvNoLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Esperando ubicación GPS…"
+            android:textSize="13sp"
+            android:textColor="@color/text_dim"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</FrameLayout>

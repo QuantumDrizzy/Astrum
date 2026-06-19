@@ -1,0 +1,3 @@
+# Language stats should reflect the real implementation (Kotlin).
+gradlew     linguist-vendored
+gradlew.bat linguist-vendored

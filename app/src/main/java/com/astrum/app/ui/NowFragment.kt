@@ -1,4 +1,5 @@
 package com.astrum.app.ui
+import com.astrum.app.AppClock
 
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -93,7 +94,7 @@ class NowFragment : Fragment(), SensorEventListener {
     private fun updateHeader() {
         val b = _binding ?: return
         val loc = currentLocation ?: return
-        val now = Date()
+        val now = AppClock.now()
         try {
             val sunPos  = SolarCalc.position(now, loc.latitude, loc.longitude)
             val moonIll = LunarCalc.illumination(now)

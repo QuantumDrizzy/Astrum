@@ -1,4 +1,5 @@
 package com.astrum.app.ui
+import com.astrum.app.AppClock
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -87,7 +88,7 @@ class PlanetsFragment : Fragment() {
     private fun render() {
         val b   = _b ?: return
         val loc = location ?: return
-        val now = Date()
+        val now = AppClock.now()
         try {
             var planets = PlanetCalc.computeAll(now, loc.latitude, loc.longitude)
             planets = when (currentSort) {

@@ -90,6 +90,20 @@
                 android:clickable="true"
                 android:focusable="true"/>
 
+            <!-- Settings button -->
+            <TextView
+                android:id="@+id/btnSettings"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:text="⚙"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/chip_bg_default"
+                android:contentDescription="Ajustes"
+                android:clickable="true"
+                android:focusable="true"/>
+
         </LinearLayout>
 
         <!-- GPS pill + KPIs row -->

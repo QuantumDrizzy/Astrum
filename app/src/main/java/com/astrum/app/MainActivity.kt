@@ -1,6 +1,7 @@
 package com.astrum.app
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         NightModeManager.init(this)
+        AppPrefs.init(this)
         makeEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -65,17 +67,23 @@ class MainActivity : AppCompatActivity() {
             nightModeListeners.values.toList().forEach { it() }
         }
 
+        binding.btnSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
         applyNightModeToHeader(NightModeManager.isNightMode)
         startClock()
 
         locationHelper = LocationHelper(this)
-        checkPermissionsAndStart()
+        resolveLocation()
     }
 
     override fun onResume() {
         super.onResume()
         applyNightModeToHeader(NightModeManager.isNightMode)
-        if (locationHelper.hasPermission()) locationHelper.start()
+        // Re-read settings (location source / frozen time may have changed in SettingsActivity)
+        // and re-broadcast so the visible fragment recomputes against the current state.
+        resolveLocation()
     }
 
     override fun onPause() {
@@ -128,6 +136,7 @@ class MainActivity : AppCompatActivity() {
         binding.gpsText.setTextColor(tv(isNight, redDim, R.color.text_dim))
         binding.btnNightMode.text = if (isNight) "☀" else "🌙"
         binding.btnNightMode.setTextColor(tv(isNight, red, R.color.text_secondary))
+        binding.btnSettings.setTextColor(tv(isNight, red, R.color.text_secondary))
     }
 
     // ── Edge-to-edge ─────────────────────────────────────────────────────
@@ -144,6 +153,27 @@ class MainActivity : AppCompatActivity() {
             window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             )
+        }
+    }
+
+    // ── Location resolution ───────────────────────────────────────────────
+    /** Decide the location source from settings: a manual fixed point, or live GPS. Called on
+     *  create and on every resume (so a change in SettingsActivity takes effect immediately). */
+    private fun resolveLocation() {
+        if (AppPrefs.manualLocation) {
+            locationHelper.stop()
+            gpsTimeoutHandler.removeCallbacksAndMessages(null)
+            val loc = AstroLocation(AppPrefs.manualLat, AppPrefs.manualLng, null, "MANUAL")
+            currentLocation = loc
+            val name = AppPrefs.manualName
+            val label = if (name.isNotEmpty()) "📍 $name" else "📍 manual"
+            setGpsState(GpsState.ACTIVE, label)
+            locationListeners.values.toList().forEach { it(loc) }
+        } else {
+            checkPermissionsAndStart()
+            // If a fix is already in hand (returning from settings), re-broadcast so fragments
+            // recompute — important when only the frozen time changed.
+            currentLocation?.let { loc -> locationListeners.values.toList().forEach { it(loc) } }
         }
     }
 
@@ -232,7 +262,7 @@ class MainActivity : AppCompatActivity() {
     private fun startClock() { clockHandler.post(clockRunnable) }
 
     private fun tick() {
-        val now = Date()
+        val now = AppClock.now()
         val cal = Calendar.getInstance().apply { time = now }
         binding.clH.text = "%02d".format(cal.get(Calendar.HOUR_OF_DAY))
         binding.clM.text = "%02d".format(cal.get(Calendar.MINUTE))
@@ -240,10 +270,12 @@ class MainActivity : AppCompatActivity() {
 
         val days   = arrayOf("Dom","Lun","Mar","Mié","Jue","Vie","Sáb")
         val months = arrayOf("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic")
-        binding.clDate.text = "${days[cal.get(Calendar.DAY_OF_WEEK) - 1]} " +
+        // ⏸ marks a frozen (planning) time so the static clock isn't mistaken for a bug.
+        val prefix = if (AppClock.isFrozen) "⏸ " else ""
+        binding.clDate.text = "$prefix${days[cal.get(Calendar.DAY_OF_WEEK) - 1]} " +
             "${cal.get(Calendar.DAY_OF_MONTH)} ${months[cal.get(Calendar.MONTH)]} ${cal.get(Calendar.YEAR)}"
 
-        if (cal.get(Calendar.SECOND) % 15 == 0) updateKpis(now)
+        if (AppClock.isFrozen || cal.get(Calendar.SECOND) % 15 == 0) updateKpis(now)
     }
 
     private fun updateKpis(now: Date) {

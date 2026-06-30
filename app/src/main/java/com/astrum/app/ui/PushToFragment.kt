@@ -1,4 +1,5 @@
 package com.astrum.app.ui
+import com.astrum.app.AppClock
 
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -147,7 +148,7 @@ class PushToFragment : Fragment(), SensorEventListener {
         b.tvNoLoc.visibility = View.GONE
         val target = targets.getOrNull(selectedIndex) ?: return
         val pos = try {
-            target.altAz(Date(), loc.latitude, loc.longitude)
+            target.altAz(AppClock.now(), loc.latitude, loc.longitude)
         } catch (_: Exception) { null } ?: return
 
         targetAltAz = pos

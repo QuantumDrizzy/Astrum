@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settingsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvSettingsTitle"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="AJUSTES" android:fontFamily="monospace"
+            android:textSize="22sp" android:textStyle="bold" android:letterSpacing="0.25"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- ── LOCATION ── -->
+        <TextView android:id="@+id/lblLocation"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="UBICACIÓN" android:fontFamily="monospace"
+            android:textSize="12sp" android:letterSpacing="0.15"
+            android:textColor="@color/amber" android:layout_marginBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rgLocation"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/rbAuto"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GPS automático" android:fontFamily="monospace"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+            <RadioButton android:id="@+id/rbManual"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Manual (coordenadas fijas)" android:fontFamily="monospace"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+        </RadioGroup>
+
+        <EditText android:id="@+id/etLat"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Latitud  (ej. 37.9922)" android:fontFamily="monospace"
+            android:inputType="numberSigned|numberDecimal"
+            android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
+            android:textSize="14sp" android:layout_marginTop="8dp"/>
+        <EditText android:id="@+id/etLng"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Longitud  (ej. -1.1307)" android:fontFamily="monospace"
+            android:inputType="numberSigned|numberDecimal"
+            android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
+            android:textSize="14sp"/>
+        <EditText android:id="@+id/etName"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Nombre del sitio (opcional)" android:fontFamily="monospace"
+            android:inputType="text"
+            android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
+            android:textSize="14sp"/>
+
+        <!-- ── TIME ── -->
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TIEMPO" android:fontFamily="monospace"
+            android:textSize="12sp" android:letterSpacing="0.15"
+            android:textColor="@color/amber"
+            android:layout_marginTop="28dp" android:layout_marginBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rgTime"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/rbTimeReal"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Tiempo real" android:fontFamily="monospace"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+            <RadioButton android:id="@+id/rbTimeFrozen"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Fijar fecha y hora (planificar)" android:fontFamily="monospace"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+        </RadioGroup>
+
+        <Button android:id="@+id/btnPickDateTime"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Elegir fecha y hora" android:fontFamily="monospace"
+            android:textSize="13sp" android:layout_marginTop="4dp"/>
+        <TextView android:id="@+id/tvFrozenInfo"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="—" android:fontFamily="monospace"
+            android:textSize="13sp" android:textColor="@color/amber" android:layout_marginTop="4dp"/>
+
+        <!-- ── SAVE ── -->
+        <Button android:id="@+id/btnSave"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="GUARDAR" android:fontFamily="monospace"
+            android:textStyle="bold" android:letterSpacing="0.1"
+            android:layout_marginTop="32dp"/>
+
+    </LinearLayout>
+</ScrollView>

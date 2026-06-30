@@ -1,4 +1,5 @@
 package com.astrum.app.ui
+import com.astrum.app.AppClock
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -106,7 +107,7 @@ class CatalogFragment : Fragment() {
     private fun render() {
         val b   = _b ?: return
         val loc = location
-        val now = Date()
+        val now = AppClock.now()
         var items = Catalog.MESSIER.map { obj ->
             if (loc != null) {
                 try {

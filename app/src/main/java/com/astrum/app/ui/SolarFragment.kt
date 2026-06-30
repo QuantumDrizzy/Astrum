@@ -1,4 +1,5 @@
 package com.astrum.app.ui
+import com.astrum.app.AppClock
 
 import android.os.Bundle
 import android.view.*
@@ -48,7 +49,7 @@ class SolarFragment : Fragment() {
     private fun render() {
         val b   = _b ?: return
         val loc = location ?: return
-        val now = Date()
+        val now = AppClock.now()
 
         try {
             val sunPos   = SolarCalc.position(now, loc.latitude, loc.longitude)

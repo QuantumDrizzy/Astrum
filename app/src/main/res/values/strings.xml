@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ASTRUM</string>
+    <string name="app_name">Astrum</string>
     <string name="app_subtitle">Observatorio Personal</string>
     <string name="nav_now">AHORA</string>
     <string name="nav_planets">PLANETAS</string>

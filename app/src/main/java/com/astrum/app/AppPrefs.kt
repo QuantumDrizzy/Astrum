@@ -33,6 +33,13 @@ object AppPrefs {
         get() = sp()?.getString("loc_name", "") ?: ""
         set(v) { sp()?.edit()?.putString("loc_name", v)?.apply() }
 
+    // ── Night mode ────────────────────────────────────────────────────────
+    /** Auto-enable the red night filter when the sky is dark. On by default; a manual toggle of
+     *  the 🌙 button turns it off so the user keeps control until they re-enable it here. */
+    var autoNight: Boolean
+        get() = sp()?.getBoolean("night_auto", true) ?: true
+        set(v) { sp()?.edit()?.putBoolean("night_auto", v)?.apply() }
+
     // ── Time ──────────────────────────────────────────────────────────────
     var frozenTime: Boolean
         get() = sp()?.getBoolean("time_frozen", false) ?: false

@@ -90,20 +90,6 @@
                 android:clickable="true"
                 android:focusable="true"/>
 
-            <!-- Settings button -->
-            <TextView
-                android:id="@+id/btnSettings"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="8dp"
-                android:text="⚙"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:background="@drawable/chip_bg_default"
-                android:contentDescription="Ajustes"
-                android:clickable="true"
-                android:focusable="true"/>
-
         </LinearLayout>
 
         <!-- GPS pill + KPIs row -->
@@ -168,15 +154,44 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"/>
 
-    <!-- ══ BOTTOM NAV ══ -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
+    <!-- ══ BOTTOM NAV (custom: BottomNavigationView caps at 5; we need 7) ══ -->
+    <LinearLayout
+        android:id="@+id/customNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:background="@color/bg_deep"
-        app:itemIconTint="@color/text_dim"
-        app:itemTextColor="@color/text_dim"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu"/>
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout android:id="@+id/barMessier" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_catalog"/>
+            <TextView  style="@style/NavBarLabel" android:text="MESSIER"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barEstrellas" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/badge_star"/>
+            <TextView  style="@style/NavBarLabel" android:text="ESTRELLAS"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barPlanetas" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_planets"/>
+            <TextView  style="@style/NavBarLabel" android:text="PLANETAS"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barAhora" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_now"/>
+            <TextView  style="@style/NavBarLabel" android:text="AHORA"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barLocalizar" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_compass_needle"/>
+            <TextView  style="@style/NavBarLabel" android:text="LOCALIZAR"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barSolLuna" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_solar"/>
+            <TextView  style="@style/NavBarLabel" android:text="SOL/LUNA"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/barAjustes" style="@style/NavBarItem">
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_settings"/>
+            <TextView  style="@style/NavBarLabel" android:text="AJUSTES"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -11,11 +11,14 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.navOptions
 import com.quantumdrizzy.astro.AstroEngine
 import com.quantumdrizzy.astro.LunarCalc
 import com.quantumdrizzy.astro.SolarCalc
@@ -59,31 +62,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        binding.bottomNav.setupWithNavController(host.navController)
+        setupCustomNav(host.navController)
 
+        // Manual night toggle: the user takes control, so auto-night stops fighting them until
+        // they re-enable it in Settings.
         binding.btnNightMode.setOnClickListener {
-            val isNight = NightModeManager.toggle()
-            applyNightModeToHeader(isNight)
+            AppPrefs.autoNight = false
+            NightModeManager.toggle()
+            applyNightModeToHeader(NightModeManager.isNightMode)
             nightModeListeners.values.toList().forEach { it() }
         }
 
-        binding.btnSettings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-
-        applyNightModeToHeader(NightModeManager.isNightMode)
         startClock()
 
         locationHelper = LocationHelper(this)
         resolveLocation()
+        applyAutoNight()
     }
 
     override fun onResume() {
         super.onResume()
-        applyNightModeToHeader(NightModeManager.isNightMode)
         // Re-read settings (location source / frozen time may have changed in SettingsActivity)
         // and re-broadcast so the visible fragment recomputes against the current state.
         resolveLocation()
+        applyAutoNight()
     }
 
     override fun onPause() {
@@ -105,15 +107,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.rootLayout.setBackgroundColor(bg)
         binding.appHeader.setBackgroundColor(bg)
-        binding.bottomNav.setBackgroundColor(
+        binding.customNav.setBackgroundColor(
             if (isNight) Color.BLACK else ContextCompat.getColor(this, R.color.nav_bg)
         )
-
-        val navTint = ColorStateList.valueOf(
-            if (isNight) red else ContextCompat.getColor(this, R.color.text_dim)
-        )
-        binding.bottomNav.itemIconTintList = navTint
-        binding.bottomNav.itemTextColor = navTint
+        if (::navController.isInitialized) {
+            updateNavSelection(navController.currentDestination?.id ?: R.id.nowFragment)
+        }
 
         // Text colours
         fun tv(isNightV: Boolean, nightC: Int, normResId: Int) =
@@ -136,7 +135,78 @@ class MainActivity : AppCompatActivity() {
         binding.gpsText.setTextColor(tv(isNight, redDim, R.color.text_dim))
         binding.btnNightMode.text = if (isNight) "☀" else "🌙"
         binding.btnNightMode.setTextColor(tv(isNight, red, R.color.text_secondary))
-        binding.btnSettings.setTextColor(tv(isNight, red, R.color.text_secondary))
+    }
+
+    // ── Custom bottom bar (BottomNavigationView caps at 5; we need 7) ──────
+    private lateinit var navController: NavController
+    private val navMap by lazy {
+        linkedMapOf(
+            R.id.catalogFragment to binding.barMessier,
+            R.id.starsFragment to binding.barEstrellas,
+            R.id.planetsFragment to binding.barPlanetas,
+            R.id.nowFragment to binding.barAhora,
+            R.id.pushToFragment to binding.barLocalizar,
+            R.id.solarFragment to binding.barSolLuna,
+        )
+    }
+
+    private fun setupCustomNav(nav: NavController) {
+        navController = nav
+        navMap.forEach { (destId, view) ->
+            view.setOnClickListener {
+                if (navController.currentDestination?.id != destId) {
+                    // Bottom-nav semantics: one instance per tab, save/restore state, back → start.
+                    navController.navigate(destId, null, navOptions {
+                        launchSingleTop = true
+                        restoreState = true
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                    })
+                }
+            }
+        }
+        binding.barAjustes.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        navController.addOnDestinationChangedListener { _, dest, _ -> updateNavSelection(dest.id) }
+        updateNavSelection(navController.currentDestination?.id ?: R.id.nowFragment)
+    }
+
+    private fun updateNavSelection(destId: Int) {
+        val night = NightModeManager.isNightMode
+        val sel = if (night) NightModeManager.RED else ContextCompat.getColor(this, R.color.amber)
+        val dim = if (night) NightModeManager.RED_DIM else ContextCompat.getColor(this, R.color.text_dim)
+        navMap.forEach { (id, container) ->
+            val c = if (id == destId) sel else dim
+            (container.getChildAt(0) as? ImageView)?.setColorFilter(c)
+            (container.getChildAt(1) as? TextView)?.setTextColor(c)
+        }
+        // Ajustes launches an Activity, so it's never the "current" tab — keep it dim.
+        (binding.barAjustes.getChildAt(0) as? ImageView)?.setColorFilter(dim)
+        (binding.barAjustes.getChildAt(1) as? TextView)?.setTextColor(dim)
+    }
+
+    // ── Auto night mode ───────────────────────────────────────────────────
+    /** Dark enough for the red filter? Uses the real Sun altitude when a location is known
+     *  (civil dusk ≈ −6°, we trigger a touch earlier at −3°), else falls back to the clock. */
+    private fun isNightTime(): Boolean {
+        val loc = currentLocation
+        if (loc != null) {
+            return try {
+                SolarCalc.position(AppClock.now(), loc.latitude, loc.longitude).altitude < -3.0
+            } catch (_: Exception) { hourIsNight() }
+        }
+        return hourIsNight()
+    }
+
+    private fun hourIsNight(): Boolean {
+        val h = Calendar.getInstance().apply { time = AppClock.now() }.get(Calendar.HOUR_OF_DAY)
+        return h >= 20 || h < 7
+    }
+
+    private fun applyAutoNight() {
+        if (AppPrefs.autoNight) NightModeManager.isNightMode = isNightTime()
+        applyNightModeToHeader(NightModeManager.isNightMode)
+        nightModeListeners.values.toList().forEach { it() }
     }
 
     // ── Edge-to-edge ─────────────────────────────────────────────────────

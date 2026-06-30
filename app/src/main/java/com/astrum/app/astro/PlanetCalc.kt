@@ -45,42 +45,11 @@ object PlanetCalc {
         OrbitalElements("Neptuno",  "\u2646",30.07,  0.009, 1.77, 131.8, 276.30, 304.35, 0.00598,  7.9)
     )
 
-    private fun geocentricPosition(pd: OrbitalElements, date: Date): Triple<Double, Double, Double> {
-        val d  = AstroEngine.daysSinceJ2000(date)
-        val L  = ((pd.L0 + pd.dL * d) % 360.0 + 360.0) % 360.0
-        val Mv = ((L - pd.w) % 360.0 + 360.0) % 360.0 * AstroEngine.RAD
-
-        // Equation of center (3 terms)
-        val v = Mv + (2.0 * pd.e - pd.e * pd.e * pd.e / 4.0) * sin(Mv) +
-                (5.0 / 4.0) * pd.e * pd.e * sin(2 * Mv)
-
-        // Heliocentric distance
-        val r  = pd.a * (1 - pd.e * pd.e) / (1 + pd.e * cos(v))
-        val w2 = (pd.w + v * AstroEngine.DEG) * AstroEngine.RAD
-
-        // Heliocentric ecliptic coords
-        val bigO = pd.O * AstroEngine.RAD
-        val inc  = pd.i * AstroEngine.RAD
-        val xe = r * (cos(bigO) * cos(w2) - sin(bigO) * sin(w2) * cos(inc))
-        val ye = r * (sin(bigO) * cos(w2) + cos(bigO) * sin(w2) * cos(inc))
-        val ze = r * sin(w2) * sin(inc)
-
-        // Earth's heliocentric position
-        val Le = (100.464 + 0.98564736 * d) * AstroEngine.RAD
-        val dx = xe - cos(Le)
-        val dy = ye - sin(Le)
-        val dz = ze
-        val dist = sqrt(dx * dx + dy * dy + dz * dz)
-
-        // Convert to equatorial
-        val ep   = AstroEngine.OBLIQUITY * AstroEngine.RAD
-        val yeq  = dy * cos(ep) - dz * sin(ep)
-        val zeq  = dy * sin(ep) + dz * cos(ep)
-        val ra   = ((atan2(yeq, dx) * AstroEngine.DEG / 15.0) % 24.0 + 24.0) % 24.0
-        val dec  = asin((zeq / dist).coerceIn(-1.0, 1.0)) * AstroEngine.DEG
-
-        return Triple(ra, dec, dist)
-    }
+    // Position now comes from the verified JPL ephemeris (PlanetEphem). The old in-line Kepler
+    // solver was wrong (longitude vs argument of perihelion mixed up, Earth as a 1 AU circle, no
+    // secular rates). Returns (raHours, decDeg, geocentricDistanceAU).
+    private fun geocentricPosition(pd: OrbitalElements, date: Date): Triple<Double, Double, Double> =
+        PlanetEphem.equatorial(pd.name, date) ?: Triple(0.0, 0.0, 1.0)
 
     /** Approximate apparent magnitude based on distance */
     private fun apparentMagnitude(pd: OrbitalElements, distAU: Double, helioDistAU: Double): Double {
@@ -103,12 +72,8 @@ object PlanetCalc {
         val rs      = AstroEngine.riseSetTransit(ra, dec, date, latDeg, lngDeg)
         val isDark  = SolarCalc.isDarkSky(date, latDeg, lngDeg)
 
-        // Heliocentric distance needed for magnitude (approx from orbital elements)
-        val d = AstroEngine.daysSinceJ2000(date)
-        val L = ((pd.L0 + pd.dL * d) % 360.0 + 360.0) % 360.0
-        val Mv = ((L - pd.w) % 360.0 + 360.0) % 360.0 * AstroEngine.RAD
-        val v  = Mv + (2.0 * pd.e - pd.e * pd.e * pd.e / 4.0) * sin(Mv)
-        val helioR = pd.a * (1 - pd.e * pd.e) / (1 + pd.e * cos(v))
+        // Heliocentric distance needed for magnitude — from the same verified ephemeris.
+        val helioR = PlanetEphem.helioDist(pd.name, date)
 
         val mag   = apparentMagnitude(pd, dist, helioR)
         val elong = try { elongation(date, ra, dec) } catch (_: Exception) { 0.0 }

@@ -15,9 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.astrum.app.astro.AstroEngine
-import com.astrum.app.astro.LunarCalc
-import com.astrum.app.astro.SolarCalc
+import com.quantumdrizzy.astro.AstroEngine
+import com.quantumdrizzy.astro.LunarCalc
+import com.quantumdrizzy.astro.SolarCalc
 import com.astrum.app.databinding.ActivityMainBinding
 import com.astrum.app.location.AstroLocation
 import com.astrum.app.location.LocationHelper

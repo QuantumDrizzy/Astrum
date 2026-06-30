@@ -16,6 +16,7 @@ import com.astrum.app.NightModeManager
 import com.astrum.app.R
 import com.astrum.app.applyNightRecursive
 import com.astrum.app.astro.*
+import com.quantumdrizzy.astro.AstroEngine
 import com.astrum.app.databinding.FragmentCatalogBinding
 import com.astrum.app.location.AstroLocation
 import com.astrum.app.views.AzimuthView

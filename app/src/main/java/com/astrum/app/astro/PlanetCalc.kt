@@ -1,4 +1,7 @@
 package com.astrum.app.astro
+import com.quantumdrizzy.astro.AstroEngine
+import com.quantumdrizzy.astro.SolarCalc
+import com.quantumdrizzy.astro.PlanetEphem
 
 import java.util.*
 import kotlin.math.*

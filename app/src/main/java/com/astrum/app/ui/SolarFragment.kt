@@ -8,6 +8,9 @@ import com.astrum.app.MainActivity
 import com.astrum.app.NightModeManager
 import com.astrum.app.applyNightRecursive
 import com.astrum.app.astro.*
+import com.quantumdrizzy.astro.AstroEngine
+import com.quantumdrizzy.astro.SolarCalc
+import com.quantumdrizzy.astro.LunarCalc
 import com.astrum.app.databinding.FragmentSolarBinding
 import com.astrum.app.location.AstroLocation
 import kotlinx.coroutines.*

@@ -14,6 +14,7 @@ import com.astrum.app.MainActivity
 import com.astrum.app.NightModeManager
 import com.astrum.app.applyNightRecursive
 import com.astrum.app.astro.*
+import com.quantumdrizzy.astro.AstroEngine
 import com.astrum.app.databinding.FragmentPushtoBinding
 import com.astrum.app.location.AstroLocation
 import kotlinx.coroutines.*
@@ -63,7 +64,7 @@ class PushToFragment : Fragment(), SensorEventListener {
         class Planet(val name: String) : Target() {
             override val label get() = "● $name"
             override fun altAz(now: Date, lat: Double, lng: Double): AstroEngine.HorizCoords? {
-                val pd = PlanetCalc.computeAll(now, lat, lng).find { it.name == name } ?: return null
+                val pd = PlanetCalc.computeAll(now, lat, lng).find { it.elements.name == name } ?: return null
                 return AstroEngine.HorizCoords(pd.altitude, pd.azimuth)
             }
         }

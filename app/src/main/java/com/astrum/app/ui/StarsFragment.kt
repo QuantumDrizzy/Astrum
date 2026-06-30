@@ -14,7 +14,7 @@ import com.astrum.app.MainActivity
 import com.astrum.app.NightModeManager
 import com.astrum.app.R
 import com.astrum.app.applyNightRecursive
-import com.astrum.app.astro.AstroEngine
+import com.quantumdrizzy.astro.AstroEngine
 import com.astrum.app.astro.Catalog
 import com.astrum.app.databinding.FragmentStarsBinding
 import com.astrum.app.location.AstroLocation

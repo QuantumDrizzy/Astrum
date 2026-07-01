@@ -21,7 +21,7 @@
                 android:background="@drawable/card_bg" android:paddingHorizontal="14dp"
                 android:fontFamily="monospace" android:textSize="12sp"
                 android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
-                android:hint="Buscar estrella, constelación..." android:singleLine="true"
+                android:hint="Search star, constellation..." android:singleLine="true"
                 android:inputType="text" android:layout_marginBottom="8dp"/>
 
             <!-- Chips + sort button -->

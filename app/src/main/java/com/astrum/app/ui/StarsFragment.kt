@@ -186,7 +186,7 @@ class StarsAdapter : ListAdapter<Catalog.BrightStar, StarsAdapter.VH>(DIFF) {
         }
         h.tvAlt.text = when {
             s.altitude > 0 -> "↑ ${"%.1f".format(s.altitude)}°"
-            else           -> "Bajo horizonte"
+            else           -> "Below horizon"
         }
         h.tvAlt.setTextColor(if (isNight) red else altColor)
         h.visBar.setBackgroundColor(if (isNight) red else altColor)

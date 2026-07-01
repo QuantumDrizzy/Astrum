@@ -35,7 +35,7 @@
                 android:textSize="12sp"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_dim"
-                android:hint="Buscar M42, Orión, nebulosa..."
+                android:hint="Search M42, Orion, nebula..."
                 android:singleLine="true"
                 android:imeOptions="actionSearch"
                 android:inputType="text"

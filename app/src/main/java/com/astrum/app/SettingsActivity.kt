@@ -94,7 +94,7 @@ class SettingsActivity : AppCompatActivity() {
             val lat = b.etLat.text.toString().trim().toDoubleOrNull()
             val lng = b.etLng.text.toString().trim().toDoubleOrNull()
             if (lat == null || lng == null || lat !in -90.0..90.0 || lng !in -180.0..180.0) {
-                Toast.makeText(this, "Coordenadas inválidas (lat -90..90, lng -180..180)", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Invalid coordinates (lat -90..90, lng -180..180)", Toast.LENGTH_LONG).show()
                 return
             }
             AppPrefs.manualLat = lat

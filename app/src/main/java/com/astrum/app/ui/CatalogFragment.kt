@@ -221,10 +221,10 @@ class CatalogAdapter : ListAdapter<CatalogObject, CatalogAdapter.VH>(DIFF) {
             else            -> ContextCompat.getColor(ctx, R.color.text_dim)
         }
         h.tvAlt.text = when {
-            o.neverRises    -> "Nunca visible"
+            o.neverRises    -> "Never visible"
             o.isCircumpolar -> "Circumpolar"
             o.altitude > 0  -> "↑ %.1f°  Az %.0f°".format(o.altitude, o.azimuth)
-            else            -> "Bajo horizonte"
+            else            -> "Below horizon"
         }
         h.tvAlt.setTextColor(if (isNight) red else altColor)
         h.visBar.setBackgroundColor(if (isNight) red else altColor)

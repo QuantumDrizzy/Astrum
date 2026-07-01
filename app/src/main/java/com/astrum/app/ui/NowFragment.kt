@@ -105,16 +105,16 @@ class NowFragment : Fragment(), SensorEventListener {
                 Math.abs(loc.longitude), if (loc.longitude <  0) "W" else "E",
                 acc
             )
-            b.tvLst.text = "T.S.L. ${AstroEngine.lstString(now, loc.longitude)}"
+            b.tvLst.text = "LST ${AstroEngine.lstString(now, loc.longitude)}"
             b.tvSkyInfo.text = buildString {
                 append(when {
-                    sunPos.altitude < -18 -> "Noche astronómica"
-                    sunPos.altitude < -12 -> "Noche náutica"
-                    sunPos.altitude < -6  -> "Crepúsculo"
-                    sunPos.altitude < 0   -> "Crepúsculo civil"
-                    else                  -> "Día"
+                    sunPos.altitude < -18 -> "Astronomical night"
+                    sunPos.altitude < -12 -> "Nautical night"
+                    sunPos.altitude < -6  -> "Twilight"
+                    sunPos.altitude < 0   -> "Civil twilight"
+                    else                  -> "Day"
                 })
-                append("  ·  Luna ${(moonIll.fraction * 100).toInt()}%")
+                append("  ·  Moon ${(moonIll.fraction * 100).toInt()}%")
             }
 
             val isDark = sunPos.altitude < -6

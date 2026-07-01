@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         val granted = perms[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
                       perms[Manifest.permission.ACCESS_COARSE_LOCATION] == true
         if (granted) startLocation()
-        else setGpsState(GpsState.ERROR, "Permiso denegado — ve a Ajustes")
+        else setGpsState(GpsState.ERROR, "Permission denied — open Settings")
     }
 
     enum class GpsState { SEARCHING, ACTIVE, ERROR }
@@ -268,7 +268,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startLocation() {
-        setGpsState(GpsState.SEARCHING, "buscando señal GPS...")
+        setGpsState(GpsState.SEARCHING, "searching for GPS…")
         locationHelper.onLocation = { loc ->
             runOnUiThread {
                 gpsTimeoutHandler.removeCallbacksAndMessages(null)
@@ -294,7 +294,7 @@ class MainActivity : AppCompatActivity() {
                     val defaultLoc = AstroLocation(40.4168, -3.7038, null, "DEFAULT")
                     currentLocation = defaultLoc
                     runOnUiThread {
-                        setGpsState(GpsState.ERROR, "Sin GPS — usando Madrid")
+                        setGpsState(GpsState.ERROR, "No GPS — using Madrid")
                         locationListeners.values.toList().forEach { it(defaultLoc) }
                     }
                 }
@@ -347,8 +347,8 @@ class MainActivity : AppCompatActivity() {
         binding.clM.text = "%02d".format(cal.get(Calendar.MINUTE))
         binding.clS.text = "%02d".format(cal.get(Calendar.SECOND))
 
-        val days   = arrayOf("Dom","Lun","Mar","Mié","Jue","Vie","Sáb")
-        val months = arrayOf("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic")
+        val days   = arrayOf("Sun","Mon","Tue","Wed","Thu","Fri","Sat")
+        val months = arrayOf("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
         // ⏸ marks a frozen (planning) time so the static clock isn't mistaken for a bug.
         val prefix = if (AppClock.isFrozen) "⏸ " else ""
         binding.clDate.text = "$prefix${days[cal.get(Calendar.DAY_OF_WEEK) - 1]} " +

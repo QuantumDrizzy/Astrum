@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOCALIZAR"
+            android:text="@string/locate_title"
             android:letterSpacing="0.25"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="apunta el móvil al cielo"
+            android:text="@string/point_phone"
             android:textSize="11sp"
             android:textColor="@color/text_dim"/>
 
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Esperando ubicación GPS…"
+            android:text="@string/no_location"
             android:textSize="13sp"
             android:textColor="@color/text_dim"
             android:visibility="gone"/>

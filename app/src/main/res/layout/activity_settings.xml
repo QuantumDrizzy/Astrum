@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/tvSettingsTitle"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="AJUSTES" android:fontFamily="monospace"
+            android:text="@string/settings_title" android:fontFamily="monospace"
             android:textSize="22sp" android:textStyle="bold" android:letterSpacing="0.25"
             android:textColor="@color/text_primary"
             android:layout_marginBottom="24dp"/>
@@ -25,7 +25,7 @@
         <!-- ── LOCATION ── -->
         <TextView android:id="@+id/lblLocation"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="UBICACIÓN" android:fontFamily="monospace"
+            android:text="@string/loc_section" android:fontFamily="monospace"
             android:textSize="12sp" android:letterSpacing="0.15"
             android:textColor="@color/amber" android:layout_marginBottom="8dp"/>
 
@@ -35,29 +35,29 @@
             android:orientation="vertical">
             <RadioButton android:id="@+id/rbAuto"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="GPS automático" android:fontFamily="monospace"
+                android:text="@string/gps_auto" android:fontFamily="monospace"
                 android:textSize="14sp" android:textColor="@color/text_primary"/>
             <RadioButton android:id="@+id/rbManual"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Manual (coordenadas fijas)" android:fontFamily="monospace"
+                android:text="@string/loc_manual" android:fontFamily="monospace"
                 android:textSize="14sp" android:textColor="@color/text_primary"/>
         </RadioGroup>
 
         <EditText android:id="@+id/etLat"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:hint="Latitud  (ej. 37.9922)" android:fontFamily="monospace"
+            android:hint="@string/lat_hint" android:fontFamily="monospace"
             android:inputType="numberSigned|numberDecimal"
             android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
             android:textSize="14sp" android:layout_marginTop="8dp"/>
         <EditText android:id="@+id/etLng"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:hint="Longitud  (ej. -1.1307)" android:fontFamily="monospace"
+            android:hint="@string/lng_hint" android:fontFamily="monospace"
             android:inputType="numberSigned|numberDecimal"
             android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
             android:textSize="14sp"/>
         <EditText android:id="@+id/etName"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:hint="Nombre del sitio (opcional)" android:fontFamily="monospace"
+            android:hint="@string/name_hint" android:fontFamily="monospace"
             android:inputType="text"
             android:textColor="@color/text_primary" android:textColorHint="@color/text_dim"
             android:textSize="14sp"/>
@@ -65,7 +65,7 @@
         <!-- ── TIME ── -->
         <TextView
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="TIEMPO" android:fontFamily="monospace"
+            android:text="@string/time_section" android:fontFamily="monospace"
             android:textSize="12sp" android:letterSpacing="0.15"
             android:textColor="@color/amber"
             android:layout_marginTop="28dp" android:layout_marginBottom="8dp"/>
@@ -76,17 +76,17 @@
             android:orientation="vertical">
             <RadioButton android:id="@+id/rbTimeReal"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Tiempo real" android:fontFamily="monospace"
+                android:text="@string/time_real" android:fontFamily="monospace"
                 android:textSize="14sp" android:textColor="@color/text_primary"/>
             <RadioButton android:id="@+id/rbTimeFrozen"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Fijar fecha y hora (planificar)" android:fontFamily="monospace"
+                android:text="@string/time_freeze" android:fontFamily="monospace"
                 android:textSize="14sp" android:textColor="@color/text_primary"/>
         </RadioGroup>
 
         <Button android:id="@+id/btnPickDateTime"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Elegir fecha y hora" android:fontFamily="monospace"
+            android:text="@string/pick_datetime" android:fontFamily="monospace"
             android:textSize="13sp" android:layout_marginTop="4dp"/>
         <TextView android:id="@+id/tvFrozenInfo"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -96,28 +96,28 @@
         <!-- ── NIGHT MODE ── -->
         <TextView
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="MODO NOCHE (FILTRO ROJO)" android:fontFamily="monospace"
+            android:text="@string/night_section" android:fontFamily="monospace"
             android:textSize="12sp" android:letterSpacing="0.15"
             android:textColor="@color/amber"
             android:layout_marginTop="28dp" android:layout_marginBottom="8dp"/>
 
         <CheckBox android:id="@+id/cbNightAuto"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Automático (se activa al oscurecer)" android:fontFamily="monospace"
+            android:text="@string/night_auto" android:fontFamily="monospace"
             android:textSize="14sp" android:textColor="@color/text_primary"/>
         <CheckBox android:id="@+id/cbNightOn"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Filtro rojo activado ahora" android:fontFamily="monospace"
+            android:text="@string/night_on" android:fontFamily="monospace"
             android:textSize="14sp" android:textColor="@color/text_primary"/>
         <TextView android:id="@+id/tvNightHint"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Con Automático activo, el filtro se gestiona solo." android:fontFamily="monospace"
+            android:text="@string/night_hint" android:fontFamily="monospace"
             android:textSize="11sp" android:textColor="@color/text_dim" android:layout_marginTop="2dp"/>
 
         <!-- ── SAVE ── -->
         <Button android:id="@+id/btnSave"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="GUARDAR" android:fontFamily="monospace"
+            android:text="@string/save" android:fontFamily="monospace"
             android:textStyle="bold" android:letterSpacing="0.1"
             android:layout_marginTop="32dp"/>
 

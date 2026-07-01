@@ -41,7 +41,7 @@
                 <TextView
                     android:id="@+id/tvAppSubtitle"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="OBSERVATORIO PERSONAL" android:fontFamily="monospace"
+                    android:text="@string/app_subtitle" android:fontFamily="monospace"
                     android:textSize="9sp" android:textColor="@color/text_dim" android:letterSpacing="0.15"/>
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                         android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
                     <TextView android:id="@+id/tvKpiLabelSol"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="SOL" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                        android:text="@string/sun" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:orientation="vertical" android:gravity="end" android:layout_marginEnd="10dp">
@@ -115,7 +115,7 @@
                         android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
                     <TextView android:id="@+id/tvKpiLabelLuna"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="LUNA" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                        android:text="@string/moon" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:orientation="vertical" android:gravity="end">
@@ -124,7 +124,7 @@
                         android:fontFamily="monospace" android:textSize="12sp" android:textColor="@color/amber"/>
                     <TextView android:id="@+id/tvKpiLabelLst"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="T.S.L." android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
+                        android:text="LST" android:fontFamily="monospace" android:textSize="8sp" android:textColor="@color/text_dim"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -152,31 +152,31 @@
 
         <LinearLayout android:id="@+id/barMessier" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_catalog"/>
-            <TextView  style="@style/NavBarLabel" android:text="MESSIER"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_messier"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barEstrellas" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_now"/>
-            <TextView  style="@style/NavBarLabel" android:text="ESTRELLAS"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_stars"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barPlanetas" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_planets"/>
-            <TextView  style="@style/NavBarLabel" android:text="PLANETAS"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_planets"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barAhora" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_clock"/>
-            <TextView  style="@style/NavBarLabel" android:text="AHORA"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_now"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barLocalizar" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_compass_ring"/>
-            <TextView  style="@style/NavBarLabel" android:text="LOCALIZAR"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_locate"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barSolLuna" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_solar"/>
-            <TextView  style="@style/NavBarLabel" android:text="SOL/LUNA"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_solar"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barAjustes" style="@style/NavBarItem">
             <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_settings"/>
-            <TextView  style="@style/NavBarLabel" android:text="AJUSTES"/>
+            <TextView  style="@style/NavBarLabel" android:text="@string/nav_settings"/>
         </LinearLayout>
     </LinearLayout>
 

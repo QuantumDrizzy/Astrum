@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_subtitle">Observatorio Personal</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_messier">MESSIER</string>
+    <string name="nav_stars">ESTRELLAS</string>
+    <string name="nav_now">AHORA</string>
+    <string name="nav_planets">PLANETAS</string>
+    <string name="nav_locate">LOCALIZAR</string>
+    <string name="nav_solar">SOL / LUNA</string>
+    <string name="nav_settings">AJUSTES</string>
+
+    <!-- Now -->
+    <string name="no_location">Esperando GPS…\nAbre la app al aire libre</string>
+    <string name="day_warning">Sol sobre el horizonte — vista orientativa</string>
+    <string name="best_now">MEJOR AHORA — ORDENADO POR ALTURA</string>
+    <string name="quality">CALIDAD</string>
+    <string name="all">Todo</string>
+    <string name="galaxies">Galaxias</string>
+    <string name="nebulae">Nebulosas</string>
+    <string name="globular">Glob.</string>
+    <string name="open">Abierto</string>
+    <string name="visible">Visibles</string>
+    <string name="planets">Planetas</string>
+    <string name="clusters">Cúmulos</string>
+
+    <!-- Sun / Moon -->
+    <string name="sun">SOL</string>
+    <string name="moon">LUNA</string>
+    <string name="time_section">TIEMPO</string>
+    <string name="altitude">ALTITUD</string>
+    <string name="azimuth">AZIMUT</string>
+    <string name="day_length">DURACIÓN DÍA</string>
+    <string name="astro_dawn">ALBA ASTRO.</string>
+    <string name="naut_dawn">ALBA NÁUT.</string>
+    <string name="golden_hour">HORA DORADA</string>
+    <string name="astro_dusk">OCASO ASTRO.</string>
+    <string name="naut_dusk">OCASO NÁUT.</string>
+    <string name="golden_end">FIN DORADA</string>
+    <string name="sun_ra">A.R. SOL</string>
+    <string name="declination">DECLINACIÓN</string>
+    <string name="rise">SALIDA</string>
+    <string name="set_time">PUESTA</string>
+    <string name="local_st">T.S. LOCAL</string>
+    <string name="julian_day">DÍA JULIANO</string>
+
+    <!-- Locate (push-to) -->
+    <string name="locate_title">LOCALIZAR</string>
+    <string name="point_phone">apunta el móvil al cielo</string>
+
+    <!-- Planets -->
+    <string name="vis_visible">VISIBLE</string>
+    <string name="vis_horizon">HORIZONTE</string>
+    <string name="vis_not_visible">NO VISIBLE</string>
+
+    <!-- Settings -->
+    <string name="settings_title">AJUSTES</string>
+    <string name="loc_section">UBICACIÓN</string>
+    <string name="gps_auto">GPS automático</string>
+    <string name="loc_manual">Manual (coordenadas fijas)</string>
+    <string name="lat_hint">Latitud  (ej. 37.9922)</string>
+    <string name="lng_hint">Longitud  (ej. -1.1307)</string>
+    <string name="name_hint">Nombre del sitio (opcional)</string>
+    <string name="time_real">Tiempo real</string>
+    <string name="time_freeze">Fijar fecha y hora (planificar)</string>
+    <string name="pick_datetime">Elegir fecha y hora</string>
+    <string name="night_section">MODO NOCHE (FILTRO ROJO)</string>
+    <string name="night_auto">Automático (se activa al oscurecer)</string>
+    <string name="night_on">Filtro rojo activado ahora</string>
+    <string name="night_hint">Con Automático activo, el filtro se gestiona solo.</string>
+    <string name="save">GUARDAR</string>
+
+    <!-- Night mode -->
+    <string name="night_mode_on">Modo Nocturno</string>
+    <string name="night_mode_off">Modo Normal</string>
+
+    <!-- Sort -->
+    <string name="sort_title">Ordenar por</string>
+    <string name="sort_altitude">Altitud ↓  (mejor posición)</string>
+    <string name="sort_magnitude">Magnitud ↑  (más brillante)</string>
+    <string name="sort_set_time">Hora de puesta ↑</string>
+
+    <!-- Privacy -->
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="privacy_body">Astrum usa tu ubicación GPS únicamente para calcular posiciones astronómicas en tiempo real. Los datos de ubicación nunca se almacenan en servidores ni se comparten con terceros.</string>
+</resources>

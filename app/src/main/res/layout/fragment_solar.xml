@@ -23,7 +23,7 @@
 
             <!-- SOL section -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="SOL" style="@style/Astrum.SectionHeader"/>
+                android:text="@string/sun" style="@style/Astrum.SectionHeader"/>
 
             <!-- Alt / Az / Day length -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -33,21 +33,21 @@
                     <TextView android:id="@+id/tvSunAlt" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textColor="@color/amber" android:text="--°"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="ALTITUD"/>
+                        style="@style/Astrum.Label" android:text="@string/altitude"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginHorizontal="4dp">
                     <TextView android:id="@+id/tvSunAz" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:text="--°"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="AZIMUT"/>
+                        style="@style/Astrum.Label" android:text="@string/azimuth"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvSunDayLen" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--h --m"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="DURACIÓN DÍA"/>
+                        style="@style/Astrum.Label" android:text="@string/day_length"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -84,21 +84,21 @@
                     <TextView android:id="@+id/tvAstroDawn" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="ALBA ASTRO."/>
+                        style="@style/Astrum.Label" android:text="@string/astro_dawn"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginHorizontal="4dp">
                     <TextView android:id="@+id/tvNautDawn" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="ALBA NÁUT."/>
+                        style="@style/Astrum.Label" android:text="@string/naut_dawn"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvGoldenHour" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:textColor="@color/amber" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="HORA DORADA"/>
+                        style="@style/Astrum.Label" android:text="@string/golden_hour"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -109,21 +109,21 @@
                     <TextView android:id="@+id/tvAstroDusk" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="OCASO ASTRO."/>
+                        style="@style/Astrum.Label" android:text="@string/astro_dusk"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginHorizontal="4dp">
                     <TextView android:id="@+id/tvNautDusk" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="OCASO NÁUT."/>
+                        style="@style/Astrum.Label" android:text="@string/naut_dusk"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvGoldenEnd" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:textColor="@color/amber" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="FIN DORADA"/>
+                        style="@style/Astrum.Label" android:text="@string/golden_end"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -135,20 +135,20 @@
                     <TextView android:id="@+id/tvSunRa" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="13sp" android:text="--h --m"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="A.R. SOL"/>
+                        style="@style/Astrum.Label" android:text="@string/sun_ra"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvSunDec" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="13sp" android:text="±--°"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="DECLINACIÓN"/>
+                        style="@style/Astrum.Label" android:text="@string/declination"/>
                 </LinearLayout>
             </LinearLayout>
 
             <!-- LUNA section -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="LUNA" style="@style/Astrum.SectionHeader"/>
+                android:text="@string/moon" style="@style/Astrum.SectionHeader"/>
 
             <!-- Moon visual + phase name -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -185,27 +185,27 @@
                     <TextView android:id="@+id/tvMoonRise" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="SALIDA"/>
+                        style="@style/Astrum.Label" android:text="@string/rise"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginHorizontal="4dp">
                     <TextView android:id="@+id/tvMoonSet" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="PUESTA"/>
+                        style="@style/Astrum.Label" android:text="@string/set_time"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvMoonAlt" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="14sp" android:text="--°"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="ALTITUD"/>
+                        style="@style/Astrum.Label" android:text="@string/altitude"/>
                 </LinearLayout>
             </LinearLayout>
 
             <!-- Tiempo sidéreo + JD -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="TIEMPO" style="@style/Astrum.SectionHeader"/>
+                android:text="@string/time_section" style="@style/Astrum.SectionHeader"/>
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
@@ -213,14 +213,14 @@
                     <TextView android:id="@+id/tvLst" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="13sp" android:textColor="@color/amber" android:text="--:--:--"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="T.S. LOCAL"/>
+                        style="@style/Astrum.Label" android:text="@string/local_st"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:orientation="vertical" android:background="@drawable/card_bg" android:padding="11dp" android:layout_marginStart="4dp">
                     <TextView android:id="@+id/tvJd" android:layout_width="wrap_content" android:layout_height="wrap_content"
                         style="@style/Astrum.Value" android:textSize="13sp" android:text="-------.---"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        style="@style/Astrum.Label" android:text="DÍA JULIANO"/>
+                        style="@style/Astrum.Label" android:text="@string/julian_day"/>
                 </LinearLayout>
             </LinearLayout>
 

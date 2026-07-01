@@ -1,31 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Astrum</string>
-    <string name="app_subtitle">Observatorio Personal</string>
-    <string name="nav_now">AHORA</string>
-    <string name="nav_planets">PLANETAS</string>
-    <string name="nav_catalog">CATÁLOGO</string>
-    <string name="nav_solar">SOL · LUNA</string>
-    <string name="no_location">Esperando GPS…\nAbre la app al aire libre</string>
-    <string name="day_warning">Sol sobre el horizonte — vista orientativa</string>
-    <string name="all">Todo</string>
-    <string name="galaxies">Galaxias</string>
-    <string name="nebulae">Nebulosas</string>
+    <string name="app_subtitle">Personal Observatory</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_messier">MESSIER</string>
+    <string name="nav_stars">STARS</string>
+    <string name="nav_now">NOW</string>
+    <string name="nav_planets">PLANETS</string>
+    <string name="nav_locate">LOCATE</string>
+    <string name="nav_solar">SUN / MOON</string>
+    <string name="nav_settings">SETTINGS</string>
+
+    <!-- Now -->
+    <string name="no_location">Waiting for GPS…\nOpen the app outdoors</string>
+    <string name="day_warning">Sun above the horizon — indicative view</string>
+    <string name="best_now">BEST NOW — SORTED BY ALTITUDE</string>
+    <string name="quality">QUALITY</string>
+    <string name="all">All</string>
+    <string name="galaxies">Galaxies</string>
+    <string name="nebulae">Nebulae</string>
     <string name="globular">Glob.</string>
-    <string name="open">Abierto</string>
-    <string name="visible">Visibles</string>
-    <string name="planets">Planetas</string>
-    <string name="clusters">Cúmulos</string>
+    <string name="open">Open</string>
+    <string name="visible">Visible</string>
+    <string name="planets">Planets</string>
+    <string name="clusters">Clusters</string>
+
+    <!-- Sun / Moon -->
+    <string name="sun">SUN</string>
+    <string name="moon">MOON</string>
+    <string name="time_section">TIME</string>
+    <string name="altitude">ALTITUDE</string>
+    <string name="azimuth">AZIMUTH</string>
+    <string name="day_length">DAY LENGTH</string>
+    <string name="astro_dawn">ASTRO. DAWN</string>
+    <string name="naut_dawn">NAUT. DAWN</string>
+    <string name="golden_hour">GOLDEN HOUR</string>
+    <string name="astro_dusk">ASTRO. DUSK</string>
+    <string name="naut_dusk">NAUT. DUSK</string>
+    <string name="golden_end">GOLDEN END</string>
+    <string name="sun_ra">SUN R.A.</string>
+    <string name="declination">DECLINATION</string>
+    <string name="rise">RISE</string>
+    <string name="set_time">SET</string>
+    <string name="local_st">LOCAL S.T.</string>
+    <string name="julian_day">JULIAN DAY</string>
+
+    <!-- Locate (push-to) -->
+    <string name="locate_title">LOCATE</string>
+    <string name="point_phone">point your phone at the sky</string>
+
+    <!-- Planets -->
+    <string name="vis_visible">VISIBLE</string>
+    <string name="vis_horizon">HORIZON</string>
+    <string name="vis_not_visible">NOT VISIBLE</string>
+
+    <!-- Settings -->
+    <string name="settings_title">SETTINGS</string>
+    <string name="loc_section">LOCATION</string>
+    <string name="gps_auto">Automatic GPS</string>
+    <string name="loc_manual">Manual (fixed coordinates)</string>
+    <string name="lat_hint">Latitude  (e.g. 37.9922)</string>
+    <string name="lng_hint">Longitude  (e.g. -1.1307)</string>
+    <string name="name_hint">Site name (optional)</string>
+    <string name="time_real">Real time</string>
+    <string name="time_freeze">Set date &amp; time (planning)</string>
+    <string name="pick_datetime">Pick date &amp; time</string>
+    <string name="night_section">NIGHT MODE (RED FILTER)</string>
+    <string name="night_auto">Automatic (on when it gets dark)</string>
+    <string name="night_on">Red filter on now</string>
+    <string name="night_hint">With Automatic on, the filter is managed for you.</string>
+    <string name="save">SAVE</string>
+
     <!-- Night mode -->
-    <string name="night_mode_on">Modo Nocturno</string>
-    <string name="night_mode_off">Modo Normal</string>
+    <string name="night_mode_on">Night mode</string>
+    <string name="night_mode_off">Normal mode</string>
+
     <!-- Sort -->
-    <string name="sort_title">Ordenar por</string>
-    <string name="sort_altitude">Altitud ↓  (mejor posición)</string>
-    <string name="sort_magnitude">Magnitud ↑  (más brillante)</string>
-    <string name="sort_set_time">Hora de puesta ↑</string>
+    <string name="sort_title">Sort by</string>
+    <string name="sort_altitude">Altitude ↓  (best placed)</string>
+    <string name="sort_magnitude">Magnitude ↑  (brightest)</string>
+    <string name="sort_set_time">Set time ↑</string>
+
     <!-- Privacy -->
     <string name="privacy_policy_url">https://astrum.app/privacy</string>
-    <string name="privacy_policy">Política de privacidad</string>
-    <string name="privacy_body">ASTRUM usa tu ubicación GPS únicamente para calcular posiciones astronómicas en tiempo real. Los datos de ubicación nunca se almacenan en servidores ni se comparten con terceros.</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_body">Astrum uses your GPS location only to compute real-time astronomical positions. Location data is never stored on servers or shared with third parties.</string>
 </resources>

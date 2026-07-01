@@ -98,7 +98,7 @@
                             android:fontFamily="monospace"
                             android:textSize="9sp"
                             android:textColor="@color/text_dim"
-                            android:text="CALIDAD"
+                            android:text="@string/quality"
                             android:layout_marginEnd="8dp"/>
                         <ProgressBar
                             android:id="@+id/skyQualityBar"
@@ -145,7 +145,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MEJOR AHORA — ORDENADO POR ALTURA"
+                android:text="@string/best_now"
                 style="@style/Astrum.SectionHeader"/>
 
             <!-- Filter chips -->

@@ -36,7 +36,7 @@
             android:fontFamily="monospace"
             android:textSize="10sp"
             android:textColor="@color/green_vis"
-            android:text="VISIBLE"/>
+            android:text="@string/vis_visible"/>
     </LinearLayout>
 
     <!-- Alt / Az / Dist / Mag grid + Azimuth radar (side by side) -->

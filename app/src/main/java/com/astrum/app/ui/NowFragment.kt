@@ -209,6 +209,16 @@ class NowFragment : Fragment(), SensorEventListener {
 
     private fun applyNightMode(isNight: Boolean) {
         (_binding?.root as? ViewGroup)?.applyNightRecursive(isNight)
+        // The compass drawables are amber by default; tint them red at night so they don't leak.
+        _binding?.let { b ->
+            if (isNight) {
+                b.compassRing.setColorFilter(NightModeManager.RED)
+                b.compassNeedle.setColorFilter(NightModeManager.RED)
+            } else {
+                b.compassRing.clearColorFilter()
+                b.compassNeedle.clearColorFilter()
+            }
+        }
     }
 
     override fun onDestroyView() {

@@ -35,7 +35,7 @@
                 <TextView
                     android:id="@+id/tvAppTitle"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="ASTRUM" android:fontFamily="monospace"
+                    android:text="Astrum" android:fontFamily="monospace"
                     android:textSize="20sp" android:textColor="@color/text_primary"
                     android:letterSpacing="0.25" android:textStyle="bold"/>
                 <TextView
@@ -155,7 +155,7 @@
             <TextView  style="@style/NavBarLabel" android:text="MESSIER"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barEstrellas" style="@style/NavBarItem">
-            <ImageView style="@style/NavBarIcon" android:src="@drawable/badge_star"/>
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_now"/>
             <TextView  style="@style/NavBarLabel" android:text="ESTRELLAS"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barPlanetas" style="@style/NavBarItem">
@@ -163,11 +163,11 @@
             <TextView  style="@style/NavBarLabel" android:text="PLANETAS"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barAhora" style="@style/NavBarItem">
-            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_now"/>
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_clock"/>
             <TextView  style="@style/NavBarLabel" android:text="AHORA"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barLocalizar" style="@style/NavBarItem">
-            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_compass_needle"/>
+            <ImageView style="@style/NavBarIcon" android:src="@drawable/ic_compass_ring"/>
             <TextView  style="@style/NavBarLabel" android:text="LOCALIZAR"/>
         </LinearLayout>
         <LinearLayout android:id="@+id/barSolLuna" style="@style/NavBarItem">

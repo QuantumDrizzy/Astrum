@@ -1,10 +1,13 @@
 package com.astrum.app
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.astrum.app.views.StarFieldView
 
@@ -28,13 +31,25 @@ fun View.applyNightRecursive(isNight: Boolean) {
         if (isNight) {
             if (getTag(R.id.tag_night_color) == null)
                 setTag(R.id.tag_night_color, currentTextColor)
-            setTextColor(NightModeManager.RED)
+            // Preserve hierarchy instead of flattening everything to one red: muted labels go dim,
+            // everything else (primary text, amber values) goes bright. Feels far less heavy.
+            val orig = (getTag(R.id.tag_night_color) as? Int) ?: currentTextColor
+            val dim = ContextCompat.getColor(context, R.color.text_dim)
+            setTextColor(if (orig == dim) NightModeManager.RED_DIM else NightModeManager.RED)
         } else {
             val orig = getTag(R.id.tag_night_color)
             if (orig is Int) { setTextColor(orig) }
             setTag(R.id.tag_night_color, null)
         }
         return          // TextViews are leaves for our purposes
+    }
+
+    // ── ProgressBar: tint red at night (green would ruin dark adaptation) ─
+    if (this is ProgressBar) {
+        progressTintList = ColorStateList.valueOf(
+            if (isNight) NightModeManager.RED else ContextCompat.getColor(context, R.color.green_vis)
+        )
+        return
     }
 
     // ── RecyclerView: do NOT recurse — adapter handles item colours ───────

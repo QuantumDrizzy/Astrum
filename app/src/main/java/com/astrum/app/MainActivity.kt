@@ -16,6 +16,9 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navOptions
@@ -60,6 +63,15 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Edge-to-edge draws the custom bottom bar behind the gesture nav, clipping its labels.
+        // Pad the bar up by the navigation-bar inset so icons + labels are fully visible.
+        val basePad = (6 * resources.displayMetrics.density).toInt()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.customNav) { v, insets ->
+            val nav = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            v.updatePadding(bottom = nav.bottom + basePad)
+            insets
+        }
 
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         setupCustomNav(host.navController)

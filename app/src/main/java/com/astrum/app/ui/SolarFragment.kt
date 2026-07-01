@@ -102,6 +102,7 @@ class SolarFragment : Fragment() {
 
     private fun applyNightMode(isNight: Boolean) {
         (_b?.root as? ViewGroup)?.applyNightRecursive(isNight)
+        _b?.moonView?.nightMode = isNight
     }
 
     override fun onDestroyView() {

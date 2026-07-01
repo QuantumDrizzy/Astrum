@@ -27,6 +27,9 @@ class SettingsActivity : AppCompatActivity() {
         b = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(b.root)
 
+        // Match the app's night filter so opening settings at the eyepiece doesn't flash warm light.
+        if (NightModeManager.isNightMode) (b.root as? android.view.ViewGroup)?.applyNightRecursive(true)
+
         // ── Load current prefs into the form ──
         if (AppPrefs.manualLocation) b.rbManual.isChecked = true else b.rbAuto.isChecked = true
         if (AppPrefs.manualLat != 0.0 || AppPrefs.manualLng != 0.0) {

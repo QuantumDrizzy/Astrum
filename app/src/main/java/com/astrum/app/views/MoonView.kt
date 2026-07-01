@@ -16,6 +16,14 @@ class MoonView @JvmOverloads constructor(
     var illumination: Double = 0.5
         set(value) { field = value; invalidate() }
 
+    // At night the lit limb must be red, not gold — otherwise it leaks warm light past the filter.
+    var nightMode: Boolean = false
+        set(value) {
+            field = value
+            paintLit.color = Color.parseColor(if (value) "#ff4842" else "#c8b870")
+            invalidate()
+        }
+
     private val paintShadow = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.parseColor("#1a2035")
     }

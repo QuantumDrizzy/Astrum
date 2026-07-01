@@ -61,7 +61,7 @@
             android:fontFamily="monospace"
             android:textSize="12sp"
             android:textColor="@color/text_secondary"
-            android:text="objetivo —"/>
+            android:text="target —"/>
 
         <!-- Live guidance cue -->
         <TextView
@@ -93,7 +93,7 @@
             android:layout_marginTop="16dp"
             android:paddingHorizontal="18dp"
             android:paddingVertical="8dp"
-            android:text="● EN OBJETIVO"
+            android:text="● ON TARGET"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/green_vis"

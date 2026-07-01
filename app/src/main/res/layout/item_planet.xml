@@ -24,7 +24,7 @@
             android:textSize="17sp"
             android:textColor="@color/text_primary"
             android:textStyle="bold"
-            android:text="Júpiter"/>
+            android:text="Jupiter"/>
 
         <TextView
             android:id="@+id/tvPlanetVis"
@@ -115,7 +115,7 @@
                 android:textSize="10sp"
                 android:textColor="@color/blue_accent"
                 android:layout_marginBottom="5dp"
-                android:text="Elongación --°"/>
+                android:text="Elongation --°"/>
 
             <!-- RA / Dec -->
             <TextView

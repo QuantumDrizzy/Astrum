@@ -39,13 +39,13 @@ object PlanetCalc {
     )
 
     val PLANETS = listOf(
-        OrbitalElements("Mercurio", "\u263F", 0.387, 0.206, 7.00, 48.33,  29.12, 252.25, 4.09234, -0.5),
+        OrbitalElements("Mercury", "\u263F", 0.387, 0.206, 7.00, 48.33,  29.12, 252.25, 4.09234, -0.5),
         OrbitalElements("Venus",    "\u2640", 0.723, 0.007, 3.39, 76.68,  54.88, 181.98, 1.60217, -4.5),
-        OrbitalElements("Marte",    "\u2642", 1.524, 0.093, 1.85, 49.56, 286.50, 355.43, 0.52402, -1.0),
-        OrbitalElements("Júpiter",  "\u2643", 5.203, 0.049, 1.30, 100.5, 274.20,  34.40, 0.08308, -2.5),
-        OrbitalElements("Saturno",  "\u2644", 9.537, 0.055, 2.49, 113.7, 338.70,  50.08, 0.03346,  0.7),
-        OrbitalElements("Urano",    "\u26E2",19.19,  0.047, 0.77, 74.00,  96.54, 314.06, 0.01172,  5.7),
-        OrbitalElements("Neptuno",  "\u2646",30.07,  0.009, 1.77, 131.8, 276.30, 304.35, 0.00598,  7.9)
+        OrbitalElements("Mars",    "\u2642", 1.524, 0.093, 1.85, 49.56, 286.50, 355.43, 0.52402, -1.0),
+        OrbitalElements("Jupiter",  "\u2643", 5.203, 0.049, 1.30, 100.5, 274.20,  34.40, 0.08308, -2.5),
+        OrbitalElements("Saturn",  "\u2644", 9.537, 0.055, 2.49, 113.7, 338.70,  50.08, 0.03346,  0.7),
+        OrbitalElements("Uranus",    "\u26E2",19.19,  0.047, 0.77, 74.00,  96.54, 314.06, 0.01172,  5.7),
+        OrbitalElements("Neptune",  "\u2646",30.07,  0.009, 1.77, 131.8, 276.30, 304.35, 0.00598,  7.9)
     )
 
     // Position now comes from the verified JPL ephemeris (PlanetEphem). The old in-line Kepler

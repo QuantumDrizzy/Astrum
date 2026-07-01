@@ -101,7 +101,7 @@ class PushToFragment : Fragment(), SensorEventListener {
     private fun buildTargets() {
         targets.clear()
         // Planets first (PlanetCalc resolves them to alt/az directly).
-        listOf("Mercurio", "Venus", "Marte", "Júpiter", "Saturno").forEach {
+        listOf("Mercury", "Venus", "Mars", "Jupiter", "Saturn").forEach {
             targets += Target.Planet(it)
         }
         // Bright named stars (mag <= 2.0); computed live from RA/Dec.
@@ -153,8 +153,8 @@ class PushToFragment : Fragment(), SensorEventListener {
 
         targetAltAz = pos
         b.azimuthView.setPosition(pos.azimuth.toFloat(), pos.altitude.toFloat())
-        val updown = if (pos.altitude < 0) "bajo el horizonte" else "alt %.0f°".format(pos.altitude)
-        b.tvTargetInfo.text = "objetivo · %s · az %03.0f°".format(updown, pos.azimuth)
+        val updown = if (pos.altitude < 0) "below the horizon" else "alt %.0f°".format(pos.altitude)
+        b.tvTargetInfo.text = "target · %s · az %03.0f°".format(updown, pos.azimuth)
     }
 
     // ── Sensor → live guidance ────────────────────────────────────────────────
@@ -176,19 +176,19 @@ class PushToFragment : Fragment(), SensorEventListener {
 
     private fun renderGuidance(g: PushTo.Guidance) {
         val b = _binding ?: return
-        b.tvSeparation.text = "separación %.1f°".format(g.separation)
+        b.tvSeparation.text = "separation %.1f°".format(g.separation)
 
         if (g.onTarget) {
             b.tvOnTarget.visibility = View.VISIBLE
-            b.tvCue.text = "Centrado"
+            b.tvCue.text = "Centered"
             return
         }
         b.tvOnTarget.visibility = View.GONE
 
         val turn = abs(g.turnDeg).roundToInt()
         val tilt = abs(g.tiltDeg).roundToInt()
-        val turnTxt = if (g.turnDeg >= 0) "Gira $turn° →" else "← Gira $turn°"
-        val tiltTxt = if (g.tiltDeg >= 0) "Sube $tilt° ↑" else "Baja $tilt° ↓"
+        val turnTxt = if (g.turnDeg >= 0) "Turn $turn° →" else "← Turn $turn°"
+        val tiltTxt = if (g.tiltDeg >= 0) "Up $tilt° ↑" else "Down $tilt° ↓"
         b.tvCue.text = "$turnTxt    $tiltTxt"
     }
 

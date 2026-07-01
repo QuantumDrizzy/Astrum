@@ -29,6 +29,8 @@ class SettingsActivity : AppCompatActivity() {
 
         // Match the app's night filter so opening settings at the eyepiece doesn't flash warm light.
         if (NightModeManager.isNightMode) (b.root as? android.view.ViewGroup)?.applyNightRecursive(true)
+        // Keep the amber Save button readable: dark text (red text on amber looked off).
+        b.btnSave.setTextColor(android.graphics.Color.BLACK)
 
         // ── Load current prefs into the form ──
         if (AppPrefs.manualLocation) b.rbManual.isChecked = true else b.rbAuto.isChecked = true

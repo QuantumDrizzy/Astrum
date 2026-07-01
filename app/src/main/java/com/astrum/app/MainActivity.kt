@@ -72,6 +72,13 @@ class MainActivity : AppCompatActivity() {
             v.updatePadding(bottom = nav.bottom + basePad)
             insets
         }
+        // Push the header below the status bar (clock/battery) so it doesn't collide with it.
+        val headerTop = (10 * resources.displayMetrics.density).toInt()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appHeader) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            v.updatePadding(top = bars.top + headerTop)
+            insets
+        }
 
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         setupCustomNav(host.navController)

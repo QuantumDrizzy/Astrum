@@ -148,6 +148,11 @@ class PlanetAdapter : ListAdapter<PlanetCalc.PlanetData, PlanetAdapter.VH>(DIFF)
         }
         h.tvVis.text = visText
         h.tvVis.setBackgroundResource(visBg)
+        // The status pills are green/amber/red — the green one leaks at night. Tint red-only.
+        if (isNight) {
+            h.tvVis.background = h.tvVis.background?.mutate()?.apply { setTint(Color.rgb(60, 10, 8)) }
+            h.tvVis.setTextColor(red)
+        }
 
         val altColor = when {
             p.altitude > 30 -> ContextCompat.getColor(ctx, R.color.green_vis)

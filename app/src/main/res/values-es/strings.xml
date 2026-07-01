@@ -53,6 +53,10 @@
     <string name="vis_visible">VISIBLE</string>
     <string name="vis_horizon">HORIZONTE</string>
     <string name="vis_not_visible">NO VISIBLE</string>
+    <string name="elong_label">Elongación</string>
+    <string name="elong_near_sun">cerca del Sol</string>
+    <string name="elong_quadrature">cuadratura este/oeste</string>
+    <string name="elong_opposition">en oposición</string>
 
     <!-- Settings -->
     <string name="settings_title">AJUSTES</string>
@@ -70,6 +74,18 @@
     <string name="night_on">Filtro rojo activado ahora</string>
     <string name="night_hint">Con Automático activo, el filtro se gestiona solo.</string>
     <string name="save">GUARDAR</string>
+
+    <!-- Moon phases (index from LunarCalc.phaseIndex) -->
+    <string-array name="moon_phases">
+        <item>Luna Nueva</item>
+        <item>Luna Creciente</item>
+        <item>Cuarto Creciente</item>
+        <item>Gibosa Creciente</item>
+        <item>Luna Llena</item>
+        <item>Gibosa Menguante</item>
+        <item>Cuarto Menguante</item>
+        <item>Luna Menguante</item>
+    </string-array>
 
     <!-- Night mode -->
     <string name="night_mode_on">Modo Nocturno</string>

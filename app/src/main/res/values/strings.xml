@@ -54,6 +54,10 @@
     <string name="vis_visible">VISIBLE</string>
     <string name="vis_horizon">HORIZON</string>
     <string name="vis_not_visible">NOT VISIBLE</string>
+    <string name="elong_label">Elongation</string>
+    <string name="elong_near_sun">near the Sun</string>
+    <string name="elong_quadrature">east/west quadrature</string>
+    <string name="elong_opposition">at opposition</string>
 
     <!-- Settings -->
     <string name="settings_title">SETTINGS</string>
@@ -71,6 +75,18 @@
     <string name="night_on">Red filter on now</string>
     <string name="night_hint">With Automatic on, the filter is managed for you.</string>
     <string name="save">SAVE</string>
+
+    <!-- Moon phases (index from LunarCalc.phaseIndex) -->
+    <string-array name="moon_phases">
+        <item>New Moon</item>
+        <item>Waxing Crescent</item>
+        <item>First Quarter</item>
+        <item>Waxing Gibbous</item>
+        <item>Full Moon</item>
+        <item>Waning Gibbous</item>
+        <item>Last Quarter</item>
+        <item>Waning Crescent</item>
+    </string-array>
 
     <!-- Night mode -->
     <string name="night_mode_on">Night mode</string>

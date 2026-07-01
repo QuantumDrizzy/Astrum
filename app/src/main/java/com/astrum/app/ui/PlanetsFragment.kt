@@ -142,9 +142,9 @@ class PlanetAdapter : ListAdapter<PlanetCalc.PlanetData, PlanetAdapter.VH>(DIFF)
         h.tvName.setTextColor(if (isNight) red else ContextCompat.getColor(ctx, R.color.text_primary))
 
         val (visText, visBg) = when {
-            p.isVisible -> Pair("VISIBLE",    R.drawable.badge_vis_yes)
-            p.isLow     -> Pair("HORIZONTE",  R.drawable.badge_vis_low)
-            else        -> Pair("NO VISIBLE", R.drawable.badge_vis_no)
+            p.isVisible -> Pair(ctx.getString(R.string.vis_visible),     R.drawable.badge_vis_yes)
+            p.isLow     -> Pair(ctx.getString(R.string.vis_horizon),     R.drawable.badge_vis_low)
+            else        -> Pair(ctx.getString(R.string.vis_not_visible), R.drawable.badge_vis_no)
         }
         h.tvVis.text = visText
         h.tvVis.setBackgroundResource(visBg)
@@ -171,12 +171,12 @@ class PlanetAdapter : ListAdapter<PlanetCalc.PlanetData, PlanetAdapter.VH>(DIFF)
         h.tvMag.text = if (p.magnitude < 99) "%+.1f".format(p.magnitude) else "--"
         h.tvMag.setTextColor(if (isNight) red else ContextCompat.getColor(ctx, R.color.teal_accent))
 
-        h.tvElong.text = "Elongación %.0f°  %s".format(
+        h.tvElong.text = "${ctx.getString(R.string.elong_label)} %.0f°  %s".format(
             p.elongation,
             when {
-                p.elongation < 20  -> "cerca del Sol"
-                p.elongation < 90  -> "cuadratura este/oeste"
-                p.elongation > 170 -> "en oposición"
+                p.elongation < 20  -> ctx.getString(R.string.elong_near_sun)
+                p.elongation < 90  -> ctx.getString(R.string.elong_quadrature)
+                p.elongation > 170 -> ctx.getString(R.string.elong_opposition)
                 else               -> ""
             }
         )

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.astrum.app.MainActivity
 import com.astrum.app.NightModeManager
+import com.astrum.app.R
 import com.astrum.app.applyNightRecursive
 import com.astrum.app.astro.*
 import com.quantumdrizzy.astro.AstroEngine
@@ -87,7 +88,7 @@ class SolarFragment : Fragment() {
             // Moon
             b.moonView.phase        = moonIll.phase
             b.moonView.illumination = moonIll.fraction
-            b.tvMoonPhase.text  = LunarCalc.phaseName(moonIll.phase)
+            b.tvMoonPhase.text  = resources.getStringArray(R.array.moon_phases)[LunarCalc.phaseIndex(moonIll.phase)]
             b.tvMoonIllum.text  = "${(moonIll.fraction * 100).toInt()}%"
             b.tvMoonAlt.text    = "%.1f°".format(moonPos.altitude)
             b.tvMoonDist.text   = "%,.0f km".format(moonPos.distance)

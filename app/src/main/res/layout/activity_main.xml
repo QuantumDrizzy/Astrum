@@ -76,20 +76,6 @@
                     android:textColor="@color/text_dim" android:gravity="end"/>
             </LinearLayout>
 
-            <!-- Night mode toggle button -->
-            <TextView
-                android:id="@+id/btnNightMode"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="10dp"
-                android:text="🌙"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:background="@drawable/chip_bg_default"
-                android:contentDescription="@string/night_mode_on"
-                android:clickable="true"
-                android:focusable="true"/>
-
         </LinearLayout>
 
         <!-- GPS pill + KPIs row -->

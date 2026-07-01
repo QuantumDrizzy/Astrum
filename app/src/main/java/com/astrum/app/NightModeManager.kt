@@ -19,9 +19,10 @@ object NightModeManager {
 
     fun toggle(): Boolean { isNightMode = !isNightMode; return isNightMode }
 
-    // Pre-parsed color values for performance
-    val RED:       Int get() = Color.rgb(204, 0, 0)
-    val RED_DIM:   Int get() = Color.rgb(100, 0, 0)
-    val RED_FAINT: Int get() = Color.rgb(26, 0, 0)
+    // Red night palette — brighter, cleaner reds read fresher than the old muddy #CC0000 while
+    // still preserving dark adaptation (deep-red only). Kept on true black for OLED contrast.
+    val RED:       Int get() = Color.rgb(255, 72, 66)   // primary (headings, active)
+    val RED_DIM:   Int get() = Color.rgb(163, 48, 44)   // secondary (labels, inactive)
+    val RED_FAINT: Int get() = Color.rgb(40, 12, 11)    // hairlines / faint fills
     val BG_NIGHT:  Int get() = Color.BLACK
 }

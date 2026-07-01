@@ -64,15 +64,7 @@ class MainActivity : AppCompatActivity() {
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         setupCustomNav(host.navController)
 
-        // Manual night toggle: the user takes control, so auto-night stops fighting them until
-        // they re-enable it in Settings.
-        binding.btnNightMode.setOnClickListener {
-            AppPrefs.autoNight = false
-            NightModeManager.toggle()
-            applyNightModeToHeader(NightModeManager.isNightMode)
-            nightModeListeners.values.toList().forEach { it() }
-        }
-
+        // The night filter is automatic (and manually settable in Ajustes) — no home button.
         startClock()
 
         locationHelper = LocationHelper(this)
@@ -133,8 +125,6 @@ class MainActivity : AppCompatActivity() {
         binding.tvKpiLabelLuna.setTextColor(tv(isNight, redDim, R.color.text_dim))
         binding.tvKpiLabelLst.setTextColor(tv(isNight, redDim, R.color.text_dim))
         binding.gpsText.setTextColor(tv(isNight, redDim, R.color.text_dim))
-        binding.btnNightMode.text = if (isNight) "☀" else "🌙"
-        binding.btnNightMode.setTextColor(tv(isNight, red, R.color.text_secondary))
     }
 
     // ── Custom bottom bar (BottomNavigationView caps at 5; we need 7) ──────

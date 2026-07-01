@@ -40,11 +40,23 @@ class SettingsActivity : AppCompatActivity() {
         if (AppPrefs.frozenTime) b.rbTimeFrozen.isChecked = true else b.rbTimeReal.isChecked = true
         updateTimeInputs(AppPrefs.frozenTime)
 
+        // ── Night mode ──
+        b.cbNightAuto.isChecked = AppPrefs.autoNight
+        b.cbNightOn.isChecked = NightModeManager.isNightMode
+        updateNightInputs(AppPrefs.autoNight)
+
         // ── Wiring ──
         b.rgLocation.setOnCheckedChangeListener { _, id -> updateLocationInputs(id == b.rbManual.id) }
         b.rgTime.setOnCheckedChangeListener { _, id -> updateTimeInputs(id == b.rbTimeFrozen.id) }
+        b.cbNightAuto.setOnCheckedChangeListener { _, checked -> updateNightInputs(checked) }
         b.btnPickDateTime.setOnClickListener { pickDateTime() }
         b.btnSave.setOnClickListener { save() }
+    }
+
+    // When auto is on, the manual "on now" switch is managed by the app, so grey it out.
+    private fun updateNightInputs(auto: Boolean) {
+        b.cbNightOn.isEnabled = !auto
+        b.cbNightOn.alpha = if (auto) 0.4f else 1f
     }
 
     private fun updateLocationInputs(manual: Boolean) {
@@ -88,6 +100,10 @@ class SettingsActivity : AppCompatActivity() {
 
         AppPrefs.frozenTime = b.rbTimeFrozen.isChecked
         if (b.rbTimeFrozen.isChecked) AppPrefs.frozenEpochMillis = cal.timeInMillis
+
+        AppPrefs.autoNight = b.cbNightAuto.isChecked
+        // In manual mode, the switch is the source of truth; in auto mode MainActivity recomputes it.
+        if (!b.cbNightAuto.isChecked) NightModeManager.isNightMode = b.cbNightOn.isChecked
 
         finish() // MainActivity re-reads prefs in onResume
     }

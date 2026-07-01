@@ -93,6 +93,27 @@
             android:text="—" android:fontFamily="monospace"
             android:textSize="13sp" android:textColor="@color/amber" android:layout_marginTop="4dp"/>
 
+        <!-- ── NIGHT MODE ── -->
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="MODO NOCHE (FILTRO ROJO)" android:fontFamily="monospace"
+            android:textSize="12sp" android:letterSpacing="0.15"
+            android:textColor="@color/amber"
+            android:layout_marginTop="28dp" android:layout_marginBottom="8dp"/>
+
+        <CheckBox android:id="@+id/cbNightAuto"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Automático (se activa al oscurecer)" android:fontFamily="monospace"
+            android:textSize="14sp" android:textColor="@color/text_primary"/>
+        <CheckBox android:id="@+id/cbNightOn"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Filtro rojo activado ahora" android:fontFamily="monospace"
+            android:textSize="14sp" android:textColor="@color/text_primary"/>
+        <TextView android:id="@+id/tvNightHint"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Con Automático activo, el filtro se gestiona solo." android:fontFamily="monospace"
+            android:textSize="11sp" android:textColor="@color/text_dim" android:layout_marginTop="2dp"/>
+
         <!-- ── SAVE ── -->
         <Button android:id="@+id/btnSave"
             android:layout_width="match_parent" android:layout_height="wrap_content"

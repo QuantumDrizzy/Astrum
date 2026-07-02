@@ -21,4 +21,5 @@
     <color name="night_red_dim">#660000</color>
     <color name="night_red_faint">#1A0000</color>
     <color name="night_bg">#000000</color>
+    <color name="ic_launcher_background">#FF030406</color>
 </resources>
